@@ -678,7 +678,7 @@
         "order": 14,
         "width": 0,
         "height": 0,
-        "label": "shoe/midfoot",
+        "label": "shoe/rearfooot ",
         "chartType": "line",
         "legend": "false",
         "xformat": "HH:mm:ss",
@@ -706,7 +706,7 @@
         ],
         "useOldStyle": false,
         "outputs": 1,
-        "x": 770,
+        "x": 780,
         "y": 2080,
         "wires": [
             []
@@ -721,7 +721,7 @@
         "order": 15,
         "width": 0,
         "height": 0,
-        "label": "shoe/rearfoot",
+        "label": "shoe/midfoot",
         "chartType": "line",
         "legend": "false",
         "xformat": "HH:mm:ss",
