@@ -1,17 +1,10 @@
 [
     {
-        "id": "ba3c85c8.653fa8",
-        "type": "tab",
-        "label": "Flow 1",
-        "disabled": false,
-        "info": ""
-    },
-    {
         "id": "c3d3abc.523c658",
         "type": "tab",
-        "label": "Flow 2",
+        "label": "Ghozr Runner Dashboard (Prod)",
         "disabled": false,
-        "info": ""
+        "info": "Producation version of Node Red sprinter assistant system dashboard."
     },
     {
         "id": "207dae44.9243b2",
@@ -258,7 +251,7 @@
         "stream": false,
         "addname": "",
         "x": 510,
-        "y": 880,
+        "y": 920,
         "wires": [
             [
                 "2675913d.d5b0ce"
@@ -277,7 +270,7 @@
         "stream": false,
         "addname": "",
         "x": 510,
-        "y": 840,
+        "y": 860,
         "wires": [
             [
                 "2675913d.d5b0ce"
@@ -313,7 +306,7 @@
         "datatype": "utf8",
         "broker": "207dae44.9243b2",
         "x": 280,
-        "y": 880,
+        "y": 920,
         "wires": [
             [
                 "2a5e18ea.b37f98",
@@ -331,7 +324,7 @@
         "datatype": "utf8",
         "broker": "207dae44.9243b2",
         "x": 270,
-        "y": 840,
+        "y": 860,
         "wires": [
             [
                 "dd8a43a3.660e9"
@@ -392,8 +385,8 @@
         ],
         "useOldStyle": false,
         "outputs": 1,
-        "x": 790,
-        "y": 880,
+        "x": 770,
+        "y": 920,
         "wires": [
             []
         ]
@@ -408,7 +401,7 @@
         "datatype": "utf8",
         "broker": "207dae44.9243b2",
         "x": 270,
-        "y": 2040,
+        "y": 1380,
         "wires": [
             [
                 "c7027106.6cb0a",
@@ -428,7 +421,7 @@
         "stream": false,
         "addname": "",
         "x": 510,
-        "y": 2040,
+        "y": 1380,
         "wires": [
             [
                 "b0df9440.a7f128"
@@ -456,7 +449,7 @@
         "reduceInitType": "",
         "reduceFixup": "",
         "x": 750,
-        "y": 1960,
+        "y": 1280,
         "wires": [
             [
                 "10657cd0.60df13",
@@ -478,7 +471,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 950,
-        "y": 1900,
+        "y": 1240,
         "wires": []
     },
     {
@@ -497,7 +490,7 @@
         "include_empty_strings": true,
         "include_null_values": "",
         "x": 930,
-        "y": 1960,
+        "y": 1280,
         "wires": [
             [
                 "4a6b864e.d1e7e8"
@@ -516,7 +509,7 @@
         "stream": false,
         "addname": "",
         "x": 510,
-        "y": 1980,
+        "y": 1260,
         "wires": [
             [
                 "b0df9440.a7f128"
@@ -535,7 +528,7 @@
         "stream": false,
         "addname": "",
         "x": 510,
-        "y": 1920,
+        "y": 1200,
         "wires": [
             [
                 "b0df9440.a7f128"
@@ -554,7 +547,7 @@
         "stream": false,
         "addname": "",
         "x": 510,
-        "y": 2080,
+        "y": 1440,
         "wires": [
             [
                 "b0df9440.a7f128"
@@ -573,7 +566,7 @@
         "stream": false,
         "addname": "",
         "x": 510,
-        "y": 2120,
+        "y": 1500,
         "wires": [
             [
                 "b0df9440.a7f128",
@@ -591,7 +584,7 @@
         "datatype": "utf8",
         "broker": "207dae44.9243b2",
         "x": 270,
-        "y": 2080,
+        "y": 1440,
         "wires": [
             [
                 "d0db9edf.6d10e",
@@ -609,7 +602,7 @@
         "datatype": "utf8",
         "broker": "207dae44.9243b2",
         "x": 280,
-        "y": 2120,
+        "y": 1500,
         "wires": [
             [
                 "f4514776.06a2c8"
@@ -623,7 +616,7 @@
         "name": "Shoe footstrike (Left)",
         "info": "",
         "x": 290,
-        "y": 2000,
+        "y": 1320,
         "wires": []
     },
     {
@@ -664,7 +657,7 @@
         "useOldStyle": false,
         "outputs": 1,
         "x": 770,
-        "y": 2040,
+        "y": 1380,
         "wires": [
             []
         ]
@@ -707,7 +700,7 @@
         "useOldStyle": false,
         "outputs": 1,
         "x": 780,
-        "y": 2080,
+        "y": 1440,
         "wires": [
             []
         ]
@@ -750,7 +743,7 @@
         "useOldStyle": false,
         "outputs": 1,
         "x": 770,
-        "y": 2120,
+        "y": 1500,
         "wires": [
             []
         ]
@@ -766,7 +759,7 @@
         "overwriteFile": "false",
         "encoding": "none",
         "x": 1260,
-        "y": 1960,
+        "y": 1280,
         "wires": [
             []
         ]
@@ -781,7 +774,7 @@
         "datatype": "utf8",
         "broker": "207dae44.9243b2",
         "x": 270,
-        "y": 1700,
+        "y": 1020,
         "wires": [
             [
                 "88831c13.d0679",
@@ -796,7 +789,7 @@
         "name": "Shoe angle (Left)",
         "info": "",
         "x": 280,
-        "y": 1660,
+        "y": 980,
         "wires": []
     },
     {
@@ -809,7 +802,7 @@
         "datatype": "utf8",
         "broker": "207dae44.9243b2",
         "x": 270,
-        "y": 1740,
+        "y": 1080,
         "wires": [
             [
                 "75f98b03.b26c44",
@@ -827,7 +820,7 @@
         "datatype": "utf8",
         "broker": "207dae44.9243b2",
         "x": 280,
-        "y": 1780,
+        "y": 1140,
         "wires": [
             [
                 "f4d6a2c4.62f4d",
@@ -847,7 +840,7 @@
         "stream": false,
         "addname": "",
         "x": 510,
-        "y": 1780,
+        "y": 1140,
         "wires": [
             [
                 "c432ae72.cc5d4"
@@ -866,7 +859,7 @@
         "stream": false,
         "addname": "",
         "x": 510,
-        "y": 1740,
+        "y": 1080,
         "wires": [
             [
                 "c432ae72.cc5d4"
@@ -885,7 +878,7 @@
         "stream": false,
         "addname": "",
         "x": 510,
-        "y": 1700,
+        "y": 1020,
         "wires": [
             [
                 "c432ae72.cc5d4"
@@ -913,7 +906,7 @@
         "reduceInitType": "",
         "reduceFixup": "",
         "x": 750,
-        "y": 1700,
+        "y": 1020,
         "wires": [
             [
                 "d8c3a531.854fd8",
@@ -959,7 +952,7 @@
         "useOldStyle": false,
         "outputs": 1,
         "x": 760,
-        "y": 1780,
+        "y": 1140,
         "wires": [
             []
         ]
@@ -980,7 +973,7 @@
         "include_empty_strings": true,
         "include_null_values": "",
         "x": 930,
-        "y": 1700,
+        "y": 1020,
         "wires": [
             [
                 "b010937f.5de46"
@@ -998,7 +991,7 @@
         "overwriteFile": "false",
         "encoding": "none",
         "x": 1260,
-        "y": 1700,
+        "y": 1020,
         "wires": [
             []
         ]
@@ -1016,8 +1009,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 950,
-        "y": 1620,
+        "x": 1010,
+        "y": 980,
         "wires": []
     },
     {
@@ -1048,7 +1041,7 @@
         "datatype": "auto",
         "broker": "207dae44.9243b2",
         "x": 290,
-        "y": 580,
+        "y": 620,
         "wires": [
             [
                 "6ff005fa.512eec",
@@ -1066,7 +1059,7 @@
         "datatype": "auto",
         "broker": "207dae44.9243b2",
         "x": 290,
-        "y": 540,
+        "y": 560,
         "wires": [
             [
                 "a031d7c0.b3f9f8",
@@ -1084,7 +1077,7 @@
         "datatype": "auto",
         "broker": "207dae44.9243b2",
         "x": 290,
-        "y": 620,
+        "y": 680,
         "wires": [
             [
                 "f523c466.4dcc08",
@@ -1104,7 +1097,7 @@
         "stream": false,
         "addname": "",
         "x": 510,
-        "y": 540,
+        "y": 560,
         "wires": [
             [
                 "60fbc4c4.2dc17c"
@@ -1142,7 +1135,7 @@
         "stream": false,
         "addname": "",
         "x": 510,
-        "y": 620,
+        "y": 680,
         "wires": [
             [
                 "60fbc4c4.2dc17c",
@@ -1162,7 +1155,7 @@
         "stream": false,
         "addname": "",
         "x": 510,
-        "y": 580,
+        "y": 620,
         "wires": [
             [
                 "60fbc4c4.2dc17c"
@@ -1183,7 +1176,7 @@
         "proxy": "",
         "authType": "",
         "x": 770,
-        "y": 660,
+        "y": 720,
         "wires": [
             []
         ]
@@ -1217,7 +1210,7 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "x": 800,
-        "y": 620,
+        "y": 680,
         "wires": []
     },
     {
@@ -1233,7 +1226,7 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "x": 800,
-        "y": 580,
+        "y": 620,
         "wires": []
     },
     {
@@ -1249,7 +1242,7 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "x": 800,
-        "y": 540,
+        "y": 560,
         "wires": []
     },
     {
@@ -1364,7 +1357,7 @@
         "label": "sharp 1 con stat",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 560,
+        "x": 520,
         "y": 220,
         "wires": []
     },
@@ -1378,7 +1371,7 @@
         "datatype": "auto",
         "broker": "207dae44.9243b2",
         "x": 290,
-        "y": 260,
+        "y": 280,
         "wires": [
             [
                 "92bd705.41cf49"
@@ -1397,8 +1390,8 @@
         "label": "sharp 3 con stat",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 560,
-        "y": 260,
+        "x": 520,
+        "y": 280,
         "wires": []
     },
     {
@@ -1411,7 +1404,7 @@
         "datatype": "auto",
         "broker": "207dae44.9243b2",
         "x": 290,
-        "y": 300,
+        "y": 340,
         "wires": [
             [
                 "5bdaca86.7d4bf4"
@@ -1430,8 +1423,8 @@
         "label": "Arm left con stat",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 560,
-        "y": 300,
+        "x": 520,
+        "y": 340,
         "wires": []
     },
     {
@@ -1443,8 +1436,8 @@
         "qos": "0",
         "datatype": "auto",
         "broker": "207dae44.9243b2",
-        "x": 750,
-        "y": 300,
+        "x": 730,
+        "y": 340,
         "wires": [
             [
                 "e9f449ee.e75a48"
@@ -1463,8 +1456,8 @@
         "label": "Smart shoe left con stat",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 1070,
-        "y": 300,
+        "x": 950,
+        "y": 340,
         "wires": []
     },
     {
@@ -1476,7 +1469,7 @@
         "qos": "0",
         "datatype": "auto",
         "broker": "207dae44.9243b2",
-        "x": 770,
+        "x": 750,
         "y": 220,
         "wires": [
             [
@@ -1496,7 +1489,7 @@
         "label": "sharp 2 con stat",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 1040,
+        "x": 980,
         "y": 220,
         "wires": []
     },
@@ -1509,8 +1502,8 @@
         "qos": "0",
         "datatype": "auto",
         "broker": "207dae44.9243b2",
-        "x": 770,
-        "y": 260,
+        "x": 750,
+        "y": 280,
         "wires": [
             [
                 "2acecdab.e81712"
@@ -1529,8 +1522,8 @@
         "label": "sharp 4 con stat",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 1040,
-        "y": 260,
+        "x": 980,
+        "y": 280,
         "wires": []
     }
 ]
