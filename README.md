@@ -1,4 +1,4 @@
-node-red-octo-goggles
+Node-Red-Sprinter-LiveDash
 =====================
 
 ### About
