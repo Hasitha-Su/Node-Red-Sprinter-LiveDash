@@ -74,6 +74,102 @@
         "hidden": false
     },
     {
+        "id": "9c80fe78.92056",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
         "id": "ff1c5845.0f5868",
         "type": "comment",
         "z": "c3d3abc.523c658",
@@ -265,7 +361,7 @@
         "z": "c3d3abc.523c658",
         "name": "",
         "group": "97785468.49ba18",
-        "order": 14,
+        "order": 12,
         "width": "0",
         "height": "0",
         "label": "Arm Motion - Left",
@@ -536,7 +632,7 @@
         "z": "c3d3abc.523c658",
         "name": "",
         "group": "97785468.49ba18",
-        "order": 27,
+        "order": 13,
         "width": 0,
         "height": 0,
         "label": "shoe/forefoot",
@@ -579,7 +675,7 @@
         "z": "c3d3abc.523c658",
         "name": "",
         "group": "97785468.49ba18",
-        "order": 28,
+        "order": 14,
         "width": 0,
         "height": 0,
         "label": "shoe/midfoot",
@@ -622,7 +718,7 @@
         "z": "c3d3abc.523c658",
         "name": "",
         "group": "97785468.49ba18",
-        "order": 29,
+        "order": 15,
         "width": 0,
         "height": 0,
         "label": "shoe/rearfoot",
@@ -831,7 +927,7 @@
         "z": "c3d3abc.523c658",
         "name": "",
         "group": "97785468.49ba18",
-        "order": 30,
+        "order": 16,
         "width": 0,
         "height": 0,
         "label": "shoe-left/angle",
@@ -942,14 +1038,14 @@
         "type": "ui_text",
         "z": "c3d3abc.523c658",
         "group": "97785468.49ba18",
-        "order": 31,
+        "order": 11,
         "width": 0,
         "height": 0,
         "name": "",
-        "label": "text",
+        "label": "Arm motions left",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 550,
+        "x": 580,
         "y": 1560,
         "wires": []
     },
@@ -977,7 +1073,7 @@
         "label": "switch",
         "tooltip": "",
         "group": "97785468.49ba18",
-        "order": 32,
+        "order": 17,
         "width": "6",
         "height": "4",
         "passthru": true,
@@ -1175,7 +1271,7 @@
         "type": "ui_text",
         "z": "c3d3abc.523c658",
         "group": "97785468.49ba18",
-        "order": 2,
+        "order": 7,
         "width": 0,
         "height": 0,
         "name": "",
@@ -1191,7 +1287,7 @@
         "type": "ui_text",
         "z": "c3d3abc.523c658",
         "group": "97785468.49ba18",
-        "order": 5,
+        "order": 10,
         "width": 0,
         "height": 0,
         "name": "",
@@ -1207,7 +1303,7 @@
         "type": "ui_text",
         "z": "c3d3abc.523c658",
         "group": "97785468.49ba18",
-        "order": 4,
+        "order": 9,
         "width": 0,
         "height": 0,
         "name": "",
@@ -1223,7 +1319,7 @@
         "type": "ui_text",
         "z": "c3d3abc.523c658",
         "group": "97785468.49ba18",
-        "order": 3,
+        "order": 8,
         "width": 0,
         "height": 0,
         "name": "",
@@ -1322,10 +1418,10 @@
         "type": "mqtt in",
         "z": "c3d3abc.523c658",
         "name": "Track device sharp 1",
-        "topic": "",
-        "qos": "2",
+        "topic": "sprinterdev/sharpdev1/constat",
+        "qos": "0",
         "datatype": "auto",
-        "broker": "e994d0d.9f4cb3",
+        "broker": "207dae44.9243b2",
         "x": 290,
         "y": 220,
         "wires": [
@@ -1338,14 +1434,15 @@
         "id": "afb43bd1.4b7398",
         "type": "ui_text",
         "z": "c3d3abc.523c658",
-        "order": 0,
+        "group": "97785468.49ba18",
+        "order": 1,
         "width": 0,
         "height": 0,
         "name": "",
-        "label": "text",
+        "label": "sharp 1 con stat",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 530,
+        "x": 560,
         "y": 220,
         "wires": []
     },
@@ -1354,10 +1451,10 @@
         "type": "mqtt in",
         "z": "c3d3abc.523c658",
         "name": "Track device sharp 3",
-        "topic": "",
-        "qos": "2",
+        "topic": "sprinterdev/sharpdev3/constat",
+        "qos": "0",
         "datatype": "auto",
-        "broker": "e994d0d.9f4cb3",
+        "broker": "207dae44.9243b2",
         "x": 290,
         "y": 260,
         "wires": [
@@ -1370,14 +1467,15 @@
         "id": "92bd705.41cf49",
         "type": "ui_text",
         "z": "c3d3abc.523c658",
-        "order": 0,
+        "group": "97785468.49ba18",
+        "order": 3,
         "width": 0,
         "height": 0,
         "name": "",
-        "label": "text",
+        "label": "sharp 3 con stat",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 530,
+        "x": 560,
         "y": 260,
         "wires": []
     },
@@ -1385,12 +1483,12 @@
         "id": "a28104b6.49e0f8",
         "type": "mqtt in",
         "z": "c3d3abc.523c658",
-        "name": "Arm motions",
-        "topic": "",
+        "name": "Arm motions device",
+        "topic": "sprinterdev/armmotion-left/constat",
         "qos": "0",
         "datatype": "auto",
-        "broker": "e994d0d.9f4cb3",
-        "x": 270,
+        "broker": "207dae44.9243b2",
+        "x": 290,
         "y": 300,
         "wires": [
             [
@@ -1402,14 +1500,15 @@
         "id": "5bdaca86.7d4bf4",
         "type": "ui_text",
         "z": "c3d3abc.523c658",
-        "order": 0,
+        "group": "97785468.49ba18",
+        "order": 5,
         "width": 0,
         "height": 0,
         "name": "",
-        "label": "text",
+        "label": "Arm left con stat",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 530,
+        "x": 560,
         "y": 300,
         "wires": []
     },
@@ -1418,11 +1517,11 @@
         "type": "mqtt in",
         "z": "c3d3abc.523c658",
         "name": "Smart Shoe",
-        "topic": "",
+        "topic": "sprinterdev/shoe-left/constat",
         "qos": "0",
         "datatype": "auto",
-        "broker": "e994d0d.9f4cb3",
-        "x": 710,
+        "broker": "207dae44.9243b2",
+        "x": 750,
         "y": 300,
         "wires": [
             [
@@ -1434,14 +1533,15 @@
         "id": "e9f449ee.e75a48",
         "type": "ui_text",
         "z": "c3d3abc.523c658",
-        "order": 0,
+        "group": "97785468.49ba18",
+        "order": 6,
         "width": 0,
         "height": 0,
         "name": "",
-        "label": "text",
+        "label": "Smart shoe left con stat",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 970,
+        "x": 1070,
         "y": 300,
         "wires": []
     },
@@ -1450,11 +1550,11 @@
         "type": "mqtt in",
         "z": "c3d3abc.523c658",
         "name": "Track device sharp 2",
-        "topic": "",
-        "qos": "2",
+        "topic": "sprinterdev/sharpdev2/constat",
+        "qos": "0",
         "datatype": "auto",
-        "broker": "e994d0d.9f4cb3",
-        "x": 730,
+        "broker": "207dae44.9243b2",
+        "x": 770,
         "y": 220,
         "wires": [
             [
@@ -1466,14 +1566,15 @@
         "id": "7ad6c46b.8c515c",
         "type": "ui_text",
         "z": "c3d3abc.523c658",
-        "order": 0,
+        "group": "97785468.49ba18",
+        "order": 2,
         "width": 0,
         "height": 0,
         "name": "",
-        "label": "text",
+        "label": "sharp 2 con stat",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 970,
+        "x": 1040,
         "y": 220,
         "wires": []
     },
@@ -1482,11 +1583,11 @@
         "type": "mqtt in",
         "z": "c3d3abc.523c658",
         "name": "Track device sharp 4",
-        "topic": "",
+        "topic": "sprinterdev/sharpdev4/constat",
         "qos": "0",
         "datatype": "auto",
-        "broker": "e994d0d.9f4cb3",
-        "x": 730,
+        "broker": "207dae44.9243b2",
+        "x": 770,
         "y": 260,
         "wires": [
             [
@@ -1498,14 +1599,15 @@
         "id": "2acecdab.e81712",
         "type": "ui_text",
         "z": "c3d3abc.523c658",
-        "order": 0,
+        "group": "97785468.49ba18",
+        "order": 4,
         "width": 0,
         "height": 0,
         "name": "",
-        "label": "text",
+        "label": "sharp 4 con stat",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 970,
+        "x": 1040,
         "y": 260,
         "wires": []
     }
