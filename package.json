@@ -1,0 +1,12 @@
+{
+    "name": "node-red-octo-goggles",
+    "description": "A Node-RED Project",
+    "version": "0.0.1",
+    "dependencies": {},
+    "node-red": {
+        "settings": {
+            "flowFile": "ghrun.json",
+            "credentialsFile": "ghrun_cred.json"
+        }
+    }
+}
