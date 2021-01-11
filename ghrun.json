@@ -5662,7 +5662,7 @@
         "method": "POST",
         "ret": "txt",
         "paytoqs": "ignore",
-        "url": "",
+        "url": "http://127.0.0.1:5000/tracksys/sprintend",
         "tls": "",
         "persist": false,
         "proxy": "",
@@ -5803,12 +5803,12 @@
         "type": "file",
         "z": "c097df09.bd74b",
         "name": "",
-        "filename": "D:\\Code lines of blackcat\\IOT\\MQTT\\saveloc\\Strike-Left.csv",
+        "filename": "D:\\data\\sprinter\\track\\track.csv",
         "appendNewline": false,
         "createDir": true,
         "overwriteFile": "false",
         "encoding": "none",
-        "x": 1140,
+        "x": 1050,
         "y": 120,
         "wires": [
             []
