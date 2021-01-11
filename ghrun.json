@@ -10,7 +10,7 @@
         "id": "58cf9774.e90508",
         "type": "tab",
         "label": "GRD - LAN",
-        "disabled": false,
+        "disabled": true,
         "info": ""
     },
     {
@@ -24,7 +24,7 @@
         "id": "ced3d84f.5e98f8",
         "type": "tab",
         "label": "Test",
-        "disabled": false,
+        "disabled": true,
         "info": ""
     },
     {
