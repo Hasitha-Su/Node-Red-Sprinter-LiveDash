@@ -1,10 +1,31 @@
 [
     {
-        "id": "c3d3abc.523c658",
+        "id": "6553160.91ab3ec",
         "type": "tab",
-        "label": "Ghozr Runner Dashboard (Prod)",
+        "label": "GRD Test MQTT",
+        "disabled": true,
+        "info": "Producation version of Node Red sprinter assistant system dashboard.\n\nUsing test.mqtt.com(not LAN)"
+    },
+    {
+        "id": "58cf9774.e90508",
+        "type": "tab",
+        "label": "GRD - LAN",
         "disabled": false,
-        "info": "Producation version of Node Red sprinter assistant system dashboard."
+        "info": ""
+    },
+    {
+        "id": "b18a8dde.6e7ec",
+        "type": "tab",
+        "label": "GRD - Miscl",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "ced3d84f.5e98f8",
+        "type": "tab",
+        "label": "Test",
+        "disabled": false,
+        "info": ""
     },
     {
         "id": "207dae44.9243b2",
@@ -163,35 +184,45 @@
         }
     },
     {
-        "id": "ff1c5845.0f5868",
+        "id": "5fb4a042.7bdff",
+        "type": "ui_group",
+        "name": "Test",
+        "tab": "",
+        "order": 1,
+        "disp": true,
+        "width": "10",
+        "collapse": false
+    },
+    {
+        "id": "826cf226.95182",
         "type": "comment",
-        "z": "c3d3abc.523c658",
+        "z": "6553160.91ab3ec",
         "name": "Arm motion - left",
         "info": "",
         "x": 280,
-        "y": 760,
+        "y": 880,
         "wires": []
     },
     {
-        "id": "c0ce964b.e3a6a8",
+        "id": "a29340fe.f4656",
         "type": "file",
-        "z": "c3d3abc.523c658",
+        "z": "6553160.91ab3ec",
         "name": "",
-        "filename": "D:\\Code lines of blackcat\\IOT\\MQTT\\saveloc\\Strike-Left.csv",
+        "filename": "D:\\Code lines of blackcat\\IOT\\MQTT\\saveloc\\arm\\armleft.csv",
         "appendNewline": false,
         "createDir": true,
         "overwriteFile": "false",
         "encoding": "none",
         "x": 1260,
-        "y": 800,
+        "y": 920,
         "wires": [
             []
         ]
     },
     {
-        "id": "78c5485c.a8c1b8",
+        "id": "fad417b4.5c9658",
         "type": "csv",
-        "z": "c3d3abc.523c658",
+        "z": "6553160.91ab3ec",
         "name": "",
         "sep": ",",
         "hdrin": true,
@@ -204,17 +235,17 @@
         "include_empty_strings": true,
         "include_null_values": "",
         "x": 930,
-        "y": 800,
+        "y": 920,
         "wires": [
             [
-                "c0ce964b.e3a6a8"
+                "a29340fe.f4656"
             ]
         ]
     },
     {
-        "id": "2675913d.d5b0ce",
+        "id": "c6ff253d.a9bda8",
         "type": "join",
-        "z": "c3d3abc.523c658",
+        "z": "6553160.91ab3ec",
         "name": "",
         "mode": "custom",
         "build": "array",
@@ -225,24 +256,62 @@
         "joinerType": "str",
         "accumulate": false,
         "timeout": "",
-        "count": "8",
+        "count": "3",
         "reduceRight": false,
         "reduceExp": "",
         "reduceInit": "",
         "reduceInitType": "",
         "reduceFixup": "",
         "x": 750,
-        "y": 800,
+        "y": 920,
         "wires": [
             [
-                "78c5485c.a8c1b8"
+                "fad417b4.5c9658"
             ]
         ]
     },
     {
-        "id": "2a5e18ea.b37f98",
+        "id": "303f0818.f80a58",
         "type": "split",
-        "z": "c3d3abc.523c658",
+        "z": "6553160.91ab3ec",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 510,
+        "y": 1040,
+        "wires": [
+            [
+                "c6ff253d.a9bda8"
+            ]
+        ]
+    },
+    {
+        "id": "13b15fcb.ce61a",
+        "type": "split",
+        "z": "6553160.91ab3ec",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 510,
+        "y": 980,
+        "wires": [
+            [
+                "c6ff253d.a9bda8"
+            ]
+        ]
+    },
+    {
+        "id": "6c5e44a0.33a6cc",
+        "type": "split",
+        "z": "6553160.91ab3ec",
         "name": "",
         "splt": "\\n",
         "spltType": "str",
@@ -254,110 +323,75 @@
         "y": 920,
         "wires": [
             [
-                "2675913d.d5b0ce"
+                "c6ff253d.a9bda8"
             ]
         ]
     },
     {
-        "id": "dd8a43a3.660e9",
-        "type": "split",
-        "z": "c3d3abc.523c658",
-        "name": "",
-        "splt": "\\n",
-        "spltType": "str",
-        "arraySplt": 1,
-        "arraySpltType": "len",
-        "stream": false,
-        "addname": "",
-        "x": 510,
-        "y": 860,
-        "wires": [
-            [
-                "2675913d.d5b0ce"
-            ]
-        ]
-    },
-    {
-        "id": "236fafaa.53aec",
-        "type": "split",
-        "z": "c3d3abc.523c658",
-        "name": "",
-        "splt": "\\n",
-        "spltType": "str",
-        "arraySplt": 1,
-        "arraySpltType": "len",
-        "stream": false,
-        "addname": "",
-        "x": 510,
-        "y": 800,
-        "wires": [
-            [
-                "2675913d.d5b0ce"
-            ]
-        ]
-    },
-    {
-        "id": "136ff9dc.016556",
+        "id": "d4900957.29cbc8",
         "type": "mqtt in",
-        "z": "c3d3abc.523c658",
+        "z": "6553160.91ab3ec",
         "name": "Arm Motion - Left",
         "topic": "sprinterdev/arm-left/angle",
         "qos": "0",
-        "datatype": "utf8",
+        "datatype": "auto",
         "broker": "207dae44.9243b2",
         "x": 280,
-        "y": 920,
+        "y": 1040,
         "wires": [
             [
-                "2a5e18ea.b37f98",
-                "1d9cd91f.d67f47"
+                "303f0818.f80a58",
+                "7aa353bd.2b84bc",
+                "78191e56.be89c"
             ]
         ]
     },
     {
-        "id": "8fcb8980.07c288",
+        "id": "3e84d90d.570c46",
         "type": "mqtt in",
-        "z": "c3d3abc.523c658",
+        "z": "6553160.91ab3ec",
         "name": "TimeStamp",
         "topic": "sprinterdev/arm-left/time",
         "qos": "0",
         "datatype": "utf8",
         "broker": "207dae44.9243b2",
         "x": 270,
-        "y": 860,
+        "y": 980,
         "wires": [
             [
-                "dd8a43a3.660e9"
+                "13b15fcb.ce61a",
+                "78191e56.be89c"
             ]
         ]
     },
     {
-        "id": "1d2d1703.f52689",
+        "id": "9a74cce1.265ea",
         "type": "mqtt in",
-        "z": "c3d3abc.523c658",
+        "z": "6553160.91ab3ec",
         "name": "Rec Number",
         "topic": "sprinterdev/arm-left/recno",
         "qos": "0",
         "datatype": "utf8",
         "broker": "207dae44.9243b2",
         "x": 270,
-        "y": 800,
+        "y": 920,
         "wires": [
             [
-                "236fafaa.53aec"
+                "6c5e44a0.33a6cc",
+                "78191e56.be89c"
             ]
         ]
     },
     {
-        "id": "1d9cd91f.d67f47",
+        "id": "7aa353bd.2b84bc",
         "type": "ui_chart",
-        "z": "c3d3abc.523c658",
+        "z": "6553160.91ab3ec",
         "name": "",
         "group": "97785468.49ba18",
-        "order": 12,
+        "order": 15,
         "width": "0",
         "height": "0",
-        "label": "Arm Motion - Left",
+        "label": "Graph Arm Motion - Left",
         "chartType": "line",
         "legend": "false",
         "xformat": "HH:mm:ss",
@@ -386,33 +420,33 @@
         "useOldStyle": false,
         "outputs": 1,
         "x": 770,
-        "y": 920,
+        "y": 1040,
         "wires": [
             []
         ]
     },
     {
-        "id": "57f1c569.97fb1c",
+        "id": "b03cb2a2.267e6",
         "type": "mqtt in",
-        "z": "c3d3abc.523c658",
+        "z": "6553160.91ab3ec",
         "name": "Forefoot-strike",
         "topic": "esp8266/forefoot",
         "qos": "0",
         "datatype": "utf8",
         "broker": "207dae44.9243b2",
         "x": 270,
-        "y": 1380,
+        "y": 1620,
         "wires": [
             [
-                "c7027106.6cb0a",
-                "44328fa8.81ab5"
+                "cb3d4403.7a43a8",
+                "2b4f5bdc.2b6724"
             ]
         ]
     },
     {
-        "id": "c7027106.6cb0a",
+        "id": "cb3d4403.7a43a8",
         "type": "split",
-        "z": "c3d3abc.523c658",
+        "z": "6553160.91ab3ec",
         "name": "",
         "splt": "\\n",
         "spltType": "str",
@@ -421,17 +455,17 @@
         "stream": false,
         "addname": "",
         "x": 510,
-        "y": 1380,
+        "y": 1620,
         "wires": [
             [
-                "b0df9440.a7f128"
+                "5edeba4c.6003f4"
             ]
         ]
     },
     {
-        "id": "b0df9440.a7f128",
+        "id": "5edeba4c.6003f4",
         "type": "join",
-        "z": "c3d3abc.523c658",
+        "z": "6553160.91ab3ec",
         "name": "",
         "mode": "custom",
         "build": "array",
@@ -442,25 +476,25 @@
         "joinerType": "str",
         "accumulate": false,
         "timeout": "",
-        "count": "8",
+        "count": "5",
         "reduceRight": false,
         "reduceExp": "",
         "reduceInit": "",
         "reduceInitType": "",
         "reduceFixup": "",
         "x": 750,
-        "y": 1280,
+        "y": 1520,
         "wires": [
             [
-                "10657cd0.60df13",
-                "dc53a8f9.f5cca8"
+                "27bff965.90db96",
+                "a65cd9be.d4ef78"
             ]
         ]
     },
     {
-        "id": "10657cd0.60df13",
+        "id": "27bff965.90db96",
         "type": "debug",
-        "z": "c3d3abc.523c658",
+        "z": "6553160.91ab3ec",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -471,13 +505,13 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 950,
-        "y": 1240,
+        "y": 1480,
         "wires": []
     },
     {
-        "id": "dc53a8f9.f5cca8",
+        "id": "a65cd9be.d4ef78",
         "type": "csv",
-        "z": "c3d3abc.523c658",
+        "z": "6553160.91ab3ec",
         "name": "",
         "sep": ",",
         "hdrin": true,
@@ -490,17 +524,386 @@
         "include_empty_strings": true,
         "include_null_values": "",
         "x": 930,
-        "y": 1280,
+        "y": 1520,
         "wires": [
             [
-                "4a6b864e.d1e7e8"
+                "220b5a56.bdb3a6"
             ]
         ]
     },
     {
-        "id": "2132b3da.e6d0cc",
+        "id": "b6eb106e.59f5c",
         "type": "split",
-        "z": "c3d3abc.523c658",
+        "z": "6553160.91ab3ec",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 510,
+        "y": 1500,
+        "wires": [
+            [
+                "5edeba4c.6003f4"
+            ]
+        ]
+    },
+    {
+        "id": "2115dc64.2325a4",
+        "type": "split",
+        "z": "6553160.91ab3ec",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 510,
+        "y": 1440,
+        "wires": [
+            [
+                "5edeba4c.6003f4"
+            ]
+        ]
+    },
+    {
+        "id": "32692f4b.fce83",
+        "type": "split",
+        "z": "6553160.91ab3ec",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 510,
+        "y": 1680,
+        "wires": [
+            [
+                "5edeba4c.6003f4"
+            ]
+        ]
+    },
+    {
+        "id": "4101cca5.b96aa4",
+        "type": "split",
+        "z": "6553160.91ab3ec",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 510,
+        "y": 1740,
+        "wires": [
+            [
+                "5edeba4c.6003f4",
+                "8a3e7b2b.f0f208"
+            ]
+        ]
+    },
+    {
+        "id": "a453afae.d2981",
+        "type": "mqtt in",
+        "z": "6553160.91ab3ec",
+        "name": "Midfoot-strike",
+        "topic": "esp8266/rarefooot",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "207dae44.9243b2",
+        "x": 270,
+        "y": 1680,
+        "wires": [
+            [
+                "32692f4b.fce83",
+                "34ccb779.b24fa8"
+            ]
+        ]
+    },
+    {
+        "id": "65144501.2794cc",
+        "type": "mqtt in",
+        "z": "6553160.91ab3ec",
+        "name": "Rearfoot-strike",
+        "topic": "esp8266/midfoot",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "207dae44.9243b2",
+        "x": 280,
+        "y": 1740,
+        "wires": [
+            [
+                "4101cca5.b96aa4"
+            ]
+        ]
+    },
+    {
+        "id": "a3f026c5.cb6978",
+        "type": "comment",
+        "z": "6553160.91ab3ec",
+        "name": "Shoe footstrike (Left)",
+        "info": "",
+        "x": 290,
+        "y": 1560,
+        "wires": []
+    },
+    {
+        "id": "2b4f5bdc.2b6724",
+        "type": "ui_chart",
+        "z": "6553160.91ab3ec",
+        "name": "",
+        "group": "97785468.49ba18",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "label": "Graph Shoe - Forefoot",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "1000",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 800,
+        "y": 1620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "34ccb779.b24fa8",
+        "type": "ui_chart",
+        "z": "6553160.91ab3ec",
+        "name": "",
+        "group": "97785468.49ba18",
+        "order": 13,
+        "width": 0,
+        "height": 0,
+        "label": "Graph Shoe - Rearfooot ",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "1000",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 810,
+        "y": 1680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8a3e7b2b.f0f208",
+        "type": "ui_chart",
+        "z": "6553160.91ab3ec",
+        "name": "",
+        "group": "97785468.49ba18",
+        "order": 14,
+        "width": 0,
+        "height": 0,
+        "label": "Graph Shoe - Midfoot",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "1000",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 800,
+        "y": 1740,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "220b5a56.bdb3a6",
+        "type": "file",
+        "z": "6553160.91ab3ec",
+        "name": "",
+        "filename": "D:\\Code lines of blackcat\\IOT\\MQTT\\saveloc\\Strike-Left.csv",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 1260,
+        "y": 1520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8f3d7256.bd227",
+        "type": "mqtt in",
+        "z": "6553160.91ab3ec",
+        "name": "Rec Number",
+        "topic": "shoe/recno",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "207dae44.9243b2",
+        "x": 270,
+        "y": 1260,
+        "wires": [
+            [
+                "79776b4e.bce044",
+                "2115dc64.2325a4"
+            ]
+        ]
+    },
+    {
+        "id": "83f2ce5e.056ef",
+        "type": "comment",
+        "z": "6553160.91ab3ec",
+        "name": "Shoe angle (Left)",
+        "info": "",
+        "x": 280,
+        "y": 1220,
+        "wires": []
+    },
+    {
+        "id": "dbae6fae.e7fd5",
+        "type": "mqtt in",
+        "z": "6553160.91ab3ec",
+        "name": "TimeStamp",
+        "topic": "shoe/time",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "207dae44.9243b2",
+        "x": 270,
+        "y": 1320,
+        "wires": [
+            [
+                "a4794f0.6fd57b",
+                "b6eb106e.59f5c"
+            ]
+        ]
+    },
+    {
+        "id": "a9d11fe3.7152f",
+        "type": "mqtt in",
+        "z": "6553160.91ab3ec",
+        "name": "Shoe-Left-Angle",
+        "topic": "sprinterDev/mpu6056-left/recno",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "207dae44.9243b2",
+        "x": 280,
+        "y": 1380,
+        "wires": [
+            [
+                "d42bbb4c.d5b868",
+                "1ddd0ded.dc4c12"
+            ]
+        ]
+    },
+    {
+        "id": "d42bbb4c.d5b868",
+        "type": "split",
+        "z": "6553160.91ab3ec",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 510,
+        "y": 1380,
+        "wires": [
+            [
+                "92d707c4.3cacb8"
+            ]
+        ]
+    },
+    {
+        "id": "a4794f0.6fd57b",
+        "type": "split",
+        "z": "6553160.91ab3ec",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 510,
+        "y": 1320,
+        "wires": [
+            [
+                "92d707c4.3cacb8"
+            ]
+        ]
+    },
+    {
+        "id": "79776b4e.bce044",
+        "type": "split",
+        "z": "6553160.91ab3ec",
         "name": "",
         "splt": "\\n",
         "spltType": "str",
@@ -512,383 +915,14 @@
         "y": 1260,
         "wires": [
             [
-                "b0df9440.a7f128"
+                "92d707c4.3cacb8"
             ]
         ]
     },
     {
-        "id": "9e7784c6.8f4b28",
-        "type": "split",
-        "z": "c3d3abc.523c658",
-        "name": "",
-        "splt": "\\n",
-        "spltType": "str",
-        "arraySplt": 1,
-        "arraySpltType": "len",
-        "stream": false,
-        "addname": "",
-        "x": 510,
-        "y": 1200,
-        "wires": [
-            [
-                "b0df9440.a7f128"
-            ]
-        ]
-    },
-    {
-        "id": "d0db9edf.6d10e",
-        "type": "split",
-        "z": "c3d3abc.523c658",
-        "name": "",
-        "splt": "\\n",
-        "spltType": "str",
-        "arraySplt": 1,
-        "arraySpltType": "len",
-        "stream": false,
-        "addname": "",
-        "x": 510,
-        "y": 1440,
-        "wires": [
-            [
-                "b0df9440.a7f128"
-            ]
-        ]
-    },
-    {
-        "id": "f4514776.06a2c8",
-        "type": "split",
-        "z": "c3d3abc.523c658",
-        "name": "",
-        "splt": "\\n",
-        "spltType": "str",
-        "arraySplt": 1,
-        "arraySpltType": "len",
-        "stream": false,
-        "addname": "",
-        "x": 510,
-        "y": 1500,
-        "wires": [
-            [
-                "b0df9440.a7f128",
-                "6d81e015.97c53"
-            ]
-        ]
-    },
-    {
-        "id": "c8239bd9.8a7c78",
-        "type": "mqtt in",
-        "z": "c3d3abc.523c658",
-        "name": "Midfoot-strike",
-        "topic": "esp8266/rarefooot",
-        "qos": "0",
-        "datatype": "utf8",
-        "broker": "207dae44.9243b2",
-        "x": 270,
-        "y": 1440,
-        "wires": [
-            [
-                "d0db9edf.6d10e",
-                "2331ffb1.d3783"
-            ]
-        ]
-    },
-    {
-        "id": "28a8722a.8cb89e",
-        "type": "mqtt in",
-        "z": "c3d3abc.523c658",
-        "name": "Rearfoot-strike",
-        "topic": "esp8266/midfoot",
-        "qos": "0",
-        "datatype": "utf8",
-        "broker": "207dae44.9243b2",
-        "x": 280,
-        "y": 1500,
-        "wires": [
-            [
-                "f4514776.06a2c8"
-            ]
-        ]
-    },
-    {
-        "id": "bf7858c0.2809a8",
-        "type": "comment",
-        "z": "c3d3abc.523c658",
-        "name": "Shoe footstrike (Left)",
-        "info": "",
-        "x": 290,
-        "y": 1320,
-        "wires": []
-    },
-    {
-        "id": "44328fa8.81ab5",
-        "type": "ui_chart",
-        "z": "c3d3abc.523c658",
-        "name": "",
-        "group": "97785468.49ba18",
-        "order": 13,
-        "width": 0,
-        "height": 0,
-        "label": "shoe/forefoot",
-        "chartType": "line",
-        "legend": "false",
-        "xformat": "HH:mm:ss",
-        "interpolate": "linear",
-        "nodata": "",
-        "dot": false,
-        "ymin": "0",
-        "ymax": "1000",
-        "removeOlder": 1,
-        "removeOlderPoints": "",
-        "removeOlderUnit": "3600",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#1f77b4",
-            "#aec7e8",
-            "#ff7f0e",
-            "#2ca02c",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "useOldStyle": false,
-        "outputs": 1,
-        "x": 770,
-        "y": 1380,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "2331ffb1.d3783",
-        "type": "ui_chart",
-        "z": "c3d3abc.523c658",
-        "name": "",
-        "group": "97785468.49ba18",
-        "order": 14,
-        "width": 0,
-        "height": 0,
-        "label": "shoe/rearfooot ",
-        "chartType": "line",
-        "legend": "false",
-        "xformat": "HH:mm:ss",
-        "interpolate": "linear",
-        "nodata": "",
-        "dot": false,
-        "ymin": "0",
-        "ymax": "1000",
-        "removeOlder": 1,
-        "removeOlderPoints": "",
-        "removeOlderUnit": "3600",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#1f77b4",
-            "#aec7e8",
-            "#ff7f0e",
-            "#2ca02c",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "useOldStyle": false,
-        "outputs": 1,
-        "x": 780,
-        "y": 1440,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "6d81e015.97c53",
-        "type": "ui_chart",
-        "z": "c3d3abc.523c658",
-        "name": "",
-        "group": "97785468.49ba18",
-        "order": 15,
-        "width": 0,
-        "height": 0,
-        "label": "shoe/midfoot",
-        "chartType": "line",
-        "legend": "false",
-        "xformat": "HH:mm:ss",
-        "interpolate": "linear",
-        "nodata": "",
-        "dot": false,
-        "ymin": "0",
-        "ymax": "1000",
-        "removeOlder": 1,
-        "removeOlderPoints": "",
-        "removeOlderUnit": "3600",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#1f77b4",
-            "#aec7e8",
-            "#ff7f0e",
-            "#2ca02c",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "useOldStyle": false,
-        "outputs": 1,
-        "x": 770,
-        "y": 1500,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "4a6b864e.d1e7e8",
-        "type": "file",
-        "z": "c3d3abc.523c658",
-        "name": "",
-        "filename": "D:\\Code lines of blackcat\\IOT\\MQTT\\saveloc\\Strike-Left.csv",
-        "appendNewline": false,
-        "createDir": true,
-        "overwriteFile": "false",
-        "encoding": "none",
-        "x": 1260,
-        "y": 1280,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "37fc43.b5c253be",
-        "type": "mqtt in",
-        "z": "c3d3abc.523c658",
-        "name": "Rec Number",
-        "topic": "shoe/recno",
-        "qos": "0",
-        "datatype": "utf8",
-        "broker": "207dae44.9243b2",
-        "x": 270,
-        "y": 1020,
-        "wires": [
-            [
-                "88831c13.d0679",
-                "9e7784c6.8f4b28"
-            ]
-        ]
-    },
-    {
-        "id": "4bebc9e.c108b38",
-        "type": "comment",
-        "z": "c3d3abc.523c658",
-        "name": "Shoe angle (Left)",
-        "info": "",
-        "x": 280,
-        "y": 980,
-        "wires": []
-    },
-    {
-        "id": "96466d26.0819",
-        "type": "mqtt in",
-        "z": "c3d3abc.523c658",
-        "name": "TimeStamp",
-        "topic": "shoe/time",
-        "qos": "0",
-        "datatype": "utf8",
-        "broker": "207dae44.9243b2",
-        "x": 270,
-        "y": 1080,
-        "wires": [
-            [
-                "75f98b03.b26c44",
-                "2132b3da.e6d0cc"
-            ]
-        ]
-    },
-    {
-        "id": "bb6125.87381ed8",
-        "type": "mqtt in",
-        "z": "c3d3abc.523c658",
-        "name": "Shoe-Left-Angle",
-        "topic": "sprinterDev/mpu6056-left/recno",
-        "qos": "0",
-        "datatype": "utf8",
-        "broker": "207dae44.9243b2",
-        "x": 280,
-        "y": 1140,
-        "wires": [
-            [
-                "f4d6a2c4.62f4d",
-                "ffea7166.b7e06"
-            ]
-        ]
-    },
-    {
-        "id": "f4d6a2c4.62f4d",
-        "type": "split",
-        "z": "c3d3abc.523c658",
-        "name": "",
-        "splt": "\\n",
-        "spltType": "str",
-        "arraySplt": 1,
-        "arraySpltType": "len",
-        "stream": false,
-        "addname": "",
-        "x": 510,
-        "y": 1140,
-        "wires": [
-            [
-                "c432ae72.cc5d4"
-            ]
-        ]
-    },
-    {
-        "id": "75f98b03.b26c44",
-        "type": "split",
-        "z": "c3d3abc.523c658",
-        "name": "",
-        "splt": "\\n",
-        "spltType": "str",
-        "arraySplt": 1,
-        "arraySpltType": "len",
-        "stream": false,
-        "addname": "",
-        "x": 510,
-        "y": 1080,
-        "wires": [
-            [
-                "c432ae72.cc5d4"
-            ]
-        ]
-    },
-    {
-        "id": "88831c13.d0679",
-        "type": "split",
-        "z": "c3d3abc.523c658",
-        "name": "",
-        "splt": "\\n",
-        "spltType": "str",
-        "arraySplt": 1,
-        "arraySpltType": "len",
-        "stream": false,
-        "addname": "",
-        "x": 510,
-        "y": 1020,
-        "wires": [
-            [
-                "c432ae72.cc5d4"
-            ]
-        ]
-    },
-    {
-        "id": "c432ae72.cc5d4",
+        "id": "92d707c4.3cacb8",
         "type": "join",
-        "z": "c3d3abc.523c658",
+        "z": "6553160.91ab3ec",
         "name": "",
         "mode": "custom",
         "build": "array",
@@ -899,31 +933,30 @@
         "joinerType": "str",
         "accumulate": false,
         "timeout": "",
-        "count": "8",
+        "count": "3",
         "reduceRight": false,
         "reduceExp": "",
         "reduceInit": "",
         "reduceInitType": "",
         "reduceFixup": "",
         "x": 750,
-        "y": 1020,
+        "y": 1260,
         "wires": [
             [
-                "d8c3a531.854fd8",
-                "f07c1f97.593e8"
+                "9373d239.5fcb5"
             ]
         ]
     },
     {
-        "id": "ffea7166.b7e06",
+        "id": "1ddd0ded.dc4c12",
         "type": "ui_chart",
-        "z": "c3d3abc.523c658",
+        "z": "6553160.91ab3ec",
         "name": "",
         "group": "97785468.49ba18",
-        "order": 16,
+        "order": 11,
         "width": 0,
         "height": 0,
-        "label": "shoe-left/angle",
+        "label": "Graph Shoe-Left - Angle",
         "chartType": "line",
         "legend": "false",
         "xformat": "HH:mm:ss",
@@ -951,16 +984,16 @@
         ],
         "useOldStyle": false,
         "outputs": 1,
-        "x": 760,
-        "y": 1140,
+        "x": 790,
+        "y": 1380,
         "wires": [
             []
         ]
     },
     {
-        "id": "f07c1f97.593e8",
+        "id": "9373d239.5fcb5",
         "type": "csv",
-        "z": "c3d3abc.523c658",
+        "z": "6553160.91ab3ec",
         "name": "",
         "sep": ",",
         "hdrin": true,
@@ -973,122 +1006,105 @@
         "include_empty_strings": true,
         "include_null_values": "",
         "x": 930,
-        "y": 1020,
+        "y": 1260,
         "wires": [
             [
-                "b010937f.5de46"
+                "8dcd8007.3863c"
             ]
         ]
     },
     {
-        "id": "b010937f.5de46",
+        "id": "8dcd8007.3863c",
         "type": "file",
-        "z": "c3d3abc.523c658",
+        "z": "6553160.91ab3ec",
         "name": "",
-        "filename": "D:\\Code lines of blackcat\\IOT\\MQTT\\saveloc\\Angle-Leftcsv",
+        "filename": "D:\\Code lines of blackcat\\IOT\\MQTT\\saveloc\\limb\\limbleft.csv",
         "appendNewline": false,
         "createDir": true,
         "overwriteFile": "false",
         "encoding": "none",
         "x": 1260,
-        "y": 1020,
+        "y": 1260,
         "wires": [
             []
         ]
     },
     {
-        "id": "d8c3a531.854fd8",
-        "type": "debug",
-        "z": "c3d3abc.523c658",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1010,
-        "y": 980,
-        "wires": []
-    },
-    {
-        "id": "72f57dca.b7c514",
+        "id": "689bfaec.e2b354",
         "type": "mqtt in",
-        "z": "c3d3abc.523c658",
+        "z": "6553160.91ab3ec",
         "name": "Track device sharp 1",
         "topic": "sharp",
         "qos": "0",
         "datatype": "auto",
         "broker": "207dae44.9243b2",
         "x": 290,
-        "y": 500,
+        "y": 520,
         "wires": [
             [
-                "66330750.c68e78",
-                "b402412b.3a356"
+                "a3e27c1.c01378",
+                "a7488d1b.6b6ad"
             ]
         ]
     },
     {
-        "id": "f5492455.5fca98",
+        "id": "940edee3.1d9e9",
         "type": "mqtt in",
-        "z": "c3d3abc.523c658",
+        "z": "6553160.91ab3ec",
         "name": "Track device sharp 3",
         "topic": "sharp2",
         "qos": "0",
         "datatype": "auto",
         "broker": "207dae44.9243b2",
         "x": 290,
-        "y": 620,
+        "y": 640,
         "wires": [
             [
-                "6ff005fa.512eec",
-                "d3223b5b.f31848"
+                "d860970b.7a7ac8",
+                "7c680aa8.5b3fb4"
             ]
         ]
     },
     {
-        "id": "2e0f3554.384f1a",
+        "id": "830628ff.a3df08",
         "type": "mqtt in",
-        "z": "c3d3abc.523c658",
+        "z": "6553160.91ab3ec",
         "name": "Track device sharp 2",
         "topic": "sharp1",
         "qos": "0",
         "datatype": "auto",
         "broker": "207dae44.9243b2",
         "x": 290,
-        "y": 560,
+        "y": 580,
         "wires": [
             [
-                "a031d7c0.b3f9f8",
-                "d21ea198.2d7e3"
+                "988048d3.21d3d8",
+                "24dc07a1.d98dd8"
             ]
         ]
     },
     {
-        "id": "6e14d76b.3742a8",
+        "id": "72db32cc.34c3ac",
         "type": "mqtt in",
-        "z": "c3d3abc.523c658",
+        "z": "6553160.91ab3ec",
         "name": "Track device sharp 4",
         "topic": "sharp3",
         "qos": "0",
         "datatype": "auto",
         "broker": "207dae44.9243b2",
         "x": 290,
-        "y": 680,
+        "y": 700,
         "wires": [
             [
-                "f523c466.4dcc08",
-                "cac35860.bd93b8"
+                "57f7f38b.3bb38c",
+                "88cb43ba.bc99c"
             ]
         ]
     },
     {
-        "id": "a031d7c0.b3f9f8",
+        "id": "988048d3.21d3d8",
         "type": "split",
-        "z": "c3d3abc.523c658",
+        "z": "6553160.91ab3ec",
         "name": "",
         "splt": "\\n",
         "spltType": "str",
@@ -1097,17 +1113,17 @@
         "stream": false,
         "addname": "",
         "x": 510,
-        "y": 560,
+        "y": 580,
         "wires": [
             [
-                "60fbc4c4.2dc17c"
+                "8228d3b5.b7bcf"
             ]
         ]
     },
     {
-        "id": "66330750.c68e78",
+        "id": "a3e27c1.c01378",
         "type": "split",
-        "z": "c3d3abc.523c658",
+        "z": "6553160.91ab3ec",
         "name": "",
         "splt": "\\n",
         "spltType": "str",
@@ -1116,17 +1132,17 @@
         "stream": false,
         "addname": "",
         "x": 510,
-        "y": 500,
+        "y": 520,
         "wires": [
             [
-                "60fbc4c4.2dc17c"
+                "8228d3b5.b7bcf"
             ]
         ]
     },
     {
-        "id": "f523c466.4dcc08",
+        "id": "57f7f38b.3bb38c",
         "type": "split",
-        "z": "c3d3abc.523c658",
+        "z": "6553160.91ab3ec",
         "name": "",
         "splt": "\\n",
         "spltType": "str",
@@ -1135,18 +1151,18 @@
         "stream": false,
         "addname": "",
         "x": 510,
-        "y": 680,
+        "y": 700,
         "wires": [
             [
-                "60fbc4c4.2dc17c",
-                "4e854fa9.5f013"
+                "8228d3b5.b7bcf",
+                "f2a156fa.7a49a8"
             ]
         ]
     },
     {
-        "id": "6ff005fa.512eec",
+        "id": "d860970b.7a7ac8",
         "type": "split",
-        "z": "c3d3abc.523c658",
+        "z": "6553160.91ab3ec",
         "name": "",
         "splt": "\\n",
         "spltType": "str",
@@ -1155,17 +1171,17 @@
         "stream": false,
         "addname": "",
         "x": 510,
-        "y": 620,
+        "y": 640,
         "wires": [
             [
-                "60fbc4c4.2dc17c"
+                "8228d3b5.b7bcf"
             ]
         ]
     },
     {
-        "id": "4e854fa9.5f013",
+        "id": "f2a156fa.7a49a8",
         "type": "http request",
-        "z": "c3d3abc.523c658",
+        "z": "6553160.91ab3ec",
         "name": "",
         "method": "POST",
         "ret": "txt",
@@ -1176,15 +1192,15 @@
         "proxy": "",
         "authType": "",
         "x": 770,
-        "y": 720,
+        "y": 740,
         "wires": [
             []
         ]
     },
     {
-        "id": "b402412b.3a356",
+        "id": "a7488d1b.6b6ad",
         "type": "ui_text",
-        "z": "c3d3abc.523c658",
+        "z": "6553160.91ab3ec",
         "group": "97785468.49ba18",
         "order": 7,
         "width": 0,
@@ -1194,13 +1210,13 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "x": 800,
-        "y": 500,
+        "y": 520,
         "wires": []
     },
     {
-        "id": "cac35860.bd93b8",
+        "id": "88cb43ba.bc99c",
         "type": "ui_text",
-        "z": "c3d3abc.523c658",
+        "z": "6553160.91ab3ec",
         "group": "97785468.49ba18",
         "order": 10,
         "width": 0,
@@ -1210,13 +1226,13 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "x": 800,
-        "y": 680,
+        "y": 700,
         "wires": []
     },
     {
-        "id": "d3223b5b.f31848",
+        "id": "7c680aa8.5b3fb4",
         "type": "ui_text",
-        "z": "c3d3abc.523c658",
+        "z": "6553160.91ab3ec",
         "group": "97785468.49ba18",
         "order": 9,
         "width": 0,
@@ -1226,13 +1242,13 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "x": 800,
-        "y": 620,
+        "y": 640,
         "wires": []
     },
     {
-        "id": "d21ea198.2d7e3",
+        "id": "24dc07a1.d98dd8",
         "type": "ui_text",
-        "z": "c3d3abc.523c658",
+        "z": "6553160.91ab3ec",
         "group": "97785468.49ba18",
         "order": 8,
         "width": 0,
@@ -1242,37 +1258,41 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "x": 800,
-        "y": 560,
+        "y": 580,
         "wires": []
     },
     {
-        "id": "60fbc4c4.2dc17c",
+        "id": "8228d3b5.b7bcf",
         "type": "join",
-        "z": "c3d3abc.523c658",
+        "z": "6553160.91ab3ec",
         "name": "",
-        "mode": "auto",
+        "mode": "custom",
         "build": "string",
         "property": "payload",
         "propertyType": "msg",
         "key": "topic",
         "joiner": "\\n",
         "joinerType": "str",
-        "accumulate": "false",
+        "accumulate": false,
         "timeout": "",
         "count": "",
         "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
         "x": 750,
-        "y": 460,
+        "y": 480,
         "wires": [
             [
-                "5d555be0.037a64"
+                "d28f88e9.238fb8"
             ]
         ]
     },
     {
-        "id": "5d555be0.037a64",
+        "id": "d28f88e9.238fb8",
         "type": "csv",
-        "z": "c3d3abc.523c658",
+        "z": "6553160.91ab3ec",
         "name": "",
         "sep": ",",
         "hdrin": true,
@@ -1285,27 +1305,27 @@
         "include_empty_strings": true,
         "include_null_values": "",
         "x": 930,
-        "y": 460,
+        "y": 480,
         "wires": [
             [
-                "707e1d.3e1bf1e4"
+                "b86f71a1.328a"
             ]
         ]
     },
     {
-        "id": "533a64dd.d68f9c",
+        "id": "ba95b1d4.aaf02",
         "type": "comment",
-        "z": "c3d3abc.523c658",
+        "z": "6553160.91ab3ec",
         "name": "Track system",
         "info": "",
         "x": 270,
-        "y": 460,
+        "y": 480,
         "wires": []
     },
     {
-        "id": "707e1d.3e1bf1e4",
+        "id": "b86f71a1.328a",
         "type": "file",
-        "z": "c3d3abc.523c658",
+        "z": "6553160.91ab3ec",
         "name": "",
         "filename": "D:\\Code lines of blackcat\\IOT\\MQTT\\saveloc\\Strike-Left.csv",
         "appendNewline": false,
@@ -1313,42 +1333,42 @@
         "overwriteFile": "false",
         "encoding": "none",
         "x": 1260,
-        "y": 460,
+        "y": 480,
         "wires": [
             []
         ]
     },
     {
-        "id": "d6c3930e.994a8",
+        "id": "5d3d58c0.31f5d8",
         "type": "comment",
-        "z": "c3d3abc.523c658",
+        "z": "6553160.91ab3ec",
         "name": "All devices connection status",
         "info": "",
         "x": 320,
-        "y": 180,
+        "y": 160,
         "wires": []
     },
     {
-        "id": "a4f05eb0.c5845",
+        "id": "d107dd1.773c62",
         "type": "mqtt in",
-        "z": "c3d3abc.523c658",
+        "z": "6553160.91ab3ec",
         "name": "Track device sharp 1",
         "topic": "sprinterdev/sharpdev1/constat",
         "qos": "0",
         "datatype": "auto",
         "broker": "207dae44.9243b2",
         "x": 290,
-        "y": 220,
+        "y": 200,
         "wires": [
             [
-                "afb43bd1.4b7398"
+                "9d86239b.b8d7a"
             ]
         ]
     },
     {
-        "id": "afb43bd1.4b7398",
+        "id": "9d86239b.b8d7a",
         "type": "ui_text",
-        "z": "c3d3abc.523c658",
+        "z": "6553160.91ab3ec",
         "group": "97785468.49ba18",
         "order": 1,
         "width": 0,
@@ -1358,30 +1378,30 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "x": 520,
-        "y": 220,
+        "y": 200,
         "wires": []
     },
     {
-        "id": "69e1b3ae.9c0fac",
+        "id": "5e0132b.e629fcc",
         "type": "mqtt in",
-        "z": "c3d3abc.523c658",
+        "z": "6553160.91ab3ec",
         "name": "Track device sharp 3",
         "topic": "sprinterdev/sharpdev3/constat",
         "qos": "0",
         "datatype": "auto",
         "broker": "207dae44.9243b2",
         "x": 290,
-        "y": 280,
+        "y": 260,
         "wires": [
             [
-                "92bd705.41cf49"
+                "62d175f6.0b416c"
             ]
         ]
     },
     {
-        "id": "92bd705.41cf49",
+        "id": "62d175f6.0b416c",
         "type": "ui_text",
-        "z": "c3d3abc.523c658",
+        "z": "6553160.91ab3ec",
         "group": "97785468.49ba18",
         "order": 3,
         "width": 0,
@@ -1391,30 +1411,30 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "x": 520,
-        "y": 280,
+        "y": 260,
         "wires": []
     },
     {
-        "id": "a28104b6.49e0f8",
+        "id": "59d7e07e.73926",
         "type": "mqtt in",
-        "z": "c3d3abc.523c658",
+        "z": "6553160.91ab3ec",
         "name": "Arm motions device",
         "topic": "sprinterdev/armmotion-left/constat",
         "qos": "0",
         "datatype": "auto",
         "broker": "207dae44.9243b2",
         "x": 290,
-        "y": 340,
+        "y": 320,
         "wires": [
             [
-                "5bdaca86.7d4bf4"
+                "aa230f22.a0eb6"
             ]
         ]
     },
     {
-        "id": "5bdaca86.7d4bf4",
+        "id": "aa230f22.a0eb6",
         "type": "ui_text",
-        "z": "c3d3abc.523c658",
+        "z": "6553160.91ab3ec",
         "group": "97785468.49ba18",
         "order": 5,
         "width": 0,
@@ -1424,30 +1444,30 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "x": 520,
-        "y": 340,
+        "y": 320,
         "wires": []
     },
     {
-        "id": "45462b78.f5edb4",
+        "id": "a00ae6a8.5cd568",
         "type": "mqtt in",
-        "z": "c3d3abc.523c658",
+        "z": "6553160.91ab3ec",
         "name": "Smart Shoe",
         "topic": "sprinterdev/shoe-left/constat",
         "qos": "0",
         "datatype": "auto",
         "broker": "207dae44.9243b2",
         "x": 730,
-        "y": 340,
+        "y": 320,
         "wires": [
             [
-                "e9f449ee.e75a48"
+                "9f26a92a.7f6478"
             ]
         ]
     },
     {
-        "id": "e9f449ee.e75a48",
+        "id": "9f26a92a.7f6478",
         "type": "ui_text",
-        "z": "c3d3abc.523c658",
+        "z": "6553160.91ab3ec",
         "group": "97785468.49ba18",
         "order": 6,
         "width": 0,
@@ -1457,30 +1477,30 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "x": 950,
-        "y": 340,
+        "y": 320,
         "wires": []
     },
     {
-        "id": "a6a13e14.7f748",
+        "id": "ee05ffa2.65593",
         "type": "mqtt in",
-        "z": "c3d3abc.523c658",
+        "z": "6553160.91ab3ec",
         "name": "Track device sharp 2",
         "topic": "sprinterdev/sharpdev2/constat",
         "qos": "0",
         "datatype": "auto",
         "broker": "207dae44.9243b2",
         "x": 750,
-        "y": 220,
+        "y": 200,
         "wires": [
             [
-                "7ad6c46b.8c515c"
+                "d3ca7345.fe705"
             ]
         ]
     },
     {
-        "id": "7ad6c46b.8c515c",
+        "id": "d3ca7345.fe705",
         "type": "ui_text",
-        "z": "c3d3abc.523c658",
+        "z": "6553160.91ab3ec",
         "group": "97785468.49ba18",
         "order": 2,
         "width": 0,
@@ -1490,30 +1510,30 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "x": 980,
-        "y": 220,
+        "y": 200,
         "wires": []
     },
     {
-        "id": "859104b4.4790c8",
+        "id": "f86f238b.48f45",
         "type": "mqtt in",
-        "z": "c3d3abc.523c658",
+        "z": "6553160.91ab3ec",
         "name": "Track device sharp 4",
         "topic": "sprinterdev/sharpdev4/constat",
         "qos": "0",
         "datatype": "auto",
         "broker": "207dae44.9243b2",
         "x": 750,
-        "y": 280,
+        "y": 260,
         "wires": [
             [
-                "2acecdab.e81712"
+                "ab6d4501.e492f8"
             ]
         ]
     },
     {
-        "id": "2acecdab.e81712",
+        "id": "ab6d4501.e492f8",
         "type": "ui_text",
-        "z": "c3d3abc.523c658",
+        "z": "6553160.91ab3ec",
         "group": "97785468.49ba18",
         "order": 4,
         "width": 0,
@@ -1523,7 +1543,4145 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "x": 980,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "78191e56.be89c",
+        "type": "debug",
+        "z": "6553160.91ab3ec",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 530,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "92a8bc84.26742",
+        "type": "comment",
+        "z": "58cf9774.e90508",
+        "name": "Arm motion - left",
+        "info": "",
+        "x": 320,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "4c28354d.e79d8c",
+        "type": "file",
+        "z": "58cf9774.e90508",
+        "name": "",
+        "filename": "D:\\Code lines of blackcat\\IOT\\MQTT\\saveloc\\arm\\armleft.csv",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 1300,
+        "y": 900,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "30a7ebdd.1d7294",
+        "type": "csv",
+        "z": "58cf9774.e90508",
+        "name": "",
+        "sep": ",",
+        "hdrin": true,
+        "hdrout": "once",
+        "multi": "one",
+        "ret": "\\r\\n",
+        "temp": "recno,time,angle",
+        "skip": "1",
+        "strings": false,
+        "include_empty_strings": true,
+        "include_null_values": true,
+        "x": 970,
+        "y": 900,
+        "wires": [
+            [
+                "4c28354d.e79d8c"
+            ]
+        ]
+    },
+    {
+        "id": "2a3004ae.5598dc",
+        "type": "join",
+        "z": "58cf9774.e90508",
+        "name": "",
+        "mode": "custom",
+        "build": "array",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "3",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 790,
+        "y": 900,
+        "wires": [
+            [
+                "30a7ebdd.1d7294"
+            ]
+        ]
+    },
+    {
+        "id": "dacc0780.dcff58",
+        "type": "split",
+        "z": "58cf9774.e90508",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 550,
+        "y": 1020,
+        "wires": [
+            [
+                "2a3004ae.5598dc"
+            ]
+        ]
+    },
+    {
+        "id": "71122304.6b9e9c",
+        "type": "split",
+        "z": "58cf9774.e90508",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 550,
+        "y": 960,
+        "wires": [
+            [
+                "2a3004ae.5598dc"
+            ]
+        ]
+    },
+    {
+        "id": "ca31d4c4.151988",
+        "type": "split",
+        "z": "58cf9774.e90508",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 550,
+        "y": 900,
+        "wires": [
+            [
+                "2a3004ae.5598dc"
+            ]
+        ]
+    },
+    {
+        "id": "474df5f9.95713c",
+        "type": "mqtt in",
+        "z": "58cf9774.e90508",
+        "name": "Arm Motion - Left",
+        "topic": "sprinterdev/arm-left/angle",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "e994d0d.9f4cb3",
+        "x": 320,
+        "y": 1020,
+        "wires": [
+            [
+                "dacc0780.dcff58",
+                "15f279ca.a40da6",
+                "dc8d8b60.4e0bd8"
+            ]
+        ]
+    },
+    {
+        "id": "90cf463b.d57408",
+        "type": "mqtt in",
+        "z": "58cf9774.e90508",
+        "name": "TimeStamp",
+        "topic": "sprinterdev/arm-left/time",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "e994d0d.9f4cb3",
+        "x": 310,
+        "y": 960,
+        "wires": [
+            [
+                "71122304.6b9e9c",
+                "dc8d8b60.4e0bd8"
+            ]
+        ]
+    },
+    {
+        "id": "61e0476d.635e48",
+        "type": "mqtt in",
+        "z": "58cf9774.e90508",
+        "name": "Rec Number",
+        "topic": "sprinterdev/arm-left/recno",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "e994d0d.9f4cb3",
+        "x": 310,
+        "y": 900,
+        "wires": [
+            [
+                "ca31d4c4.151988",
+                "dc8d8b60.4e0bd8"
+            ]
+        ]
+    },
+    {
+        "id": "15f279ca.a40da6",
+        "type": "ui_chart",
+        "z": "58cf9774.e90508",
+        "name": "",
+        "group": "97785468.49ba18",
+        "order": 15,
+        "width": "0",
+        "height": "0",
+        "label": "Graph Arm Motion - Left",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 810,
+        "y": 1020,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "31c93e8c.84ab02",
+        "type": "mqtt in",
+        "z": "58cf9774.e90508",
+        "name": "Forefoot-strike",
+        "topic": "esp8266/forefoot",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "e994d0d.9f4cb3",
+        "x": 310,
+        "y": 1600,
+        "wires": [
+            [
+                "64d1c45.e64503c",
+                "fdf486c6.d88b28"
+            ]
+        ]
+    },
+    {
+        "id": "64d1c45.e64503c",
+        "type": "split",
+        "z": "58cf9774.e90508",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 550,
+        "y": 1600,
+        "wires": [
+            [
+                "75c36a85.18e3a4"
+            ]
+        ]
+    },
+    {
+        "id": "75c36a85.18e3a4",
+        "type": "join",
+        "z": "58cf9774.e90508",
+        "name": "",
+        "mode": "custom",
+        "build": "array",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "5",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 790,
+        "y": 1500,
+        "wires": [
+            [
+                "5fc1be59.4020c",
+                "1f8aa66b.f1449a"
+            ]
+        ]
+    },
+    {
+        "id": "5fc1be59.4020c",
+        "type": "debug",
+        "z": "58cf9774.e90508",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 990,
+        "y": 1460,
+        "wires": []
+    },
+    {
+        "id": "1f8aa66b.f1449a",
+        "type": "csv",
+        "z": "58cf9774.e90508",
+        "name": "",
+        "sep": ",",
+        "hdrin": true,
+        "hdrout": "none",
+        "multi": "one",
+        "ret": "\\r\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": false,
+        "include_empty_strings": true,
+        "include_null_values": "",
+        "x": 970,
+        "y": 1500,
+        "wires": [
+            [
+                "558a5cca.97eb24"
+            ]
+        ]
+    },
+    {
+        "id": "61aebe44.695de",
+        "type": "split",
+        "z": "58cf9774.e90508",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 550,
+        "y": 1480,
+        "wires": [
+            [
+                "75c36a85.18e3a4"
+            ]
+        ]
+    },
+    {
+        "id": "a6e319b1.e79a08",
+        "type": "split",
+        "z": "58cf9774.e90508",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 550,
+        "y": 1420,
+        "wires": [
+            [
+                "75c36a85.18e3a4"
+            ]
+        ]
+    },
+    {
+        "id": "a1a040ce.39692",
+        "type": "split",
+        "z": "58cf9774.e90508",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 550,
+        "y": 1660,
+        "wires": [
+            [
+                "75c36a85.18e3a4"
+            ]
+        ]
+    },
+    {
+        "id": "d2a195ab.f2fd18",
+        "type": "split",
+        "z": "58cf9774.e90508",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 550,
+        "y": 1720,
+        "wires": [
+            [
+                "75c36a85.18e3a4",
+                "e185e199.2f581"
+            ]
+        ]
+    },
+    {
+        "id": "ffc62119.8fd57",
+        "type": "mqtt in",
+        "z": "58cf9774.e90508",
+        "name": "Midfoot-strike",
+        "topic": "esp8266/rarefooot",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "e994d0d.9f4cb3",
+        "x": 310,
+        "y": 1660,
+        "wires": [
+            [
+                "a1a040ce.39692",
+                "d0f91f11.b95e3"
+            ]
+        ]
+    },
+    {
+        "id": "3b576822.7529b8",
+        "type": "mqtt in",
+        "z": "58cf9774.e90508",
+        "name": "Rearfoot-strike",
+        "topic": "esp8266/midfoot",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "e994d0d.9f4cb3",
+        "x": 320,
+        "y": 1720,
+        "wires": [
+            [
+                "d2a195ab.f2fd18"
+            ]
+        ]
+    },
+    {
+        "id": "a5c89e5d.4f0c5",
+        "type": "comment",
+        "z": "58cf9774.e90508",
+        "name": "Shoe footstrike (Left)",
+        "info": "",
+        "x": 330,
+        "y": 1540,
+        "wires": []
+    },
+    {
+        "id": "fdf486c6.d88b28",
+        "type": "ui_chart",
+        "z": "58cf9774.e90508",
+        "name": "",
+        "group": "97785468.49ba18",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "label": "Graph Shoe - Forefoot",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "1000",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 840,
+        "y": 1600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d0f91f11.b95e3",
+        "type": "ui_chart",
+        "z": "58cf9774.e90508",
+        "name": "",
+        "group": "97785468.49ba18",
+        "order": 13,
+        "width": 0,
+        "height": 0,
+        "label": "Graph Shoe - Rearfooot ",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "1000",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 850,
+        "y": 1660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e185e199.2f581",
+        "type": "ui_chart",
+        "z": "58cf9774.e90508",
+        "name": "",
+        "group": "97785468.49ba18",
+        "order": 14,
+        "width": 0,
+        "height": 0,
+        "label": "Graph Shoe - Midfoot",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "1000",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 840,
+        "y": 1720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "558a5cca.97eb24",
+        "type": "file",
+        "z": "58cf9774.e90508",
+        "name": "",
+        "filename": "D:\\Code lines of blackcat\\IOT\\MQTT\\saveloc\\Strike-Left.csv",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 1300,
+        "y": 1500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "89dce87c.1c4188",
+        "type": "mqtt in",
+        "z": "58cf9774.e90508",
+        "name": "Rec Number",
+        "topic": "shoe/recno",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "e994d0d.9f4cb3",
+        "x": 310,
+        "y": 1240,
+        "wires": [
+            [
+                "b67e4372.d967",
+                "a6e319b1.e79a08"
+            ]
+        ]
+    },
+    {
+        "id": "93321c9f.365a2",
+        "type": "comment",
+        "z": "58cf9774.e90508",
+        "name": "Shoe angle (Left)",
+        "info": "",
+        "x": 320,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "5dbd5e8f.49911",
+        "type": "mqtt in",
+        "z": "58cf9774.e90508",
+        "name": "TimeStamp",
+        "topic": "shoe/time",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "e994d0d.9f4cb3",
+        "x": 310,
+        "y": 1300,
+        "wires": [
+            [
+                "774f2e2b.90a1d",
+                "61aebe44.695de"
+            ]
+        ]
+    },
+    {
+        "id": "1aba7fa9.4ffb5",
+        "type": "mqtt in",
+        "z": "58cf9774.e90508",
+        "name": "Shoe-Left-Angle",
+        "topic": "sprinterDev/mpu6056-left/recno",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "e994d0d.9f4cb3",
+        "x": 320,
+        "y": 1360,
+        "wires": [
+            [
+                "7876987f.6abf18",
+                "3cb54413.b41cfc"
+            ]
+        ]
+    },
+    {
+        "id": "7876987f.6abf18",
+        "type": "split",
+        "z": "58cf9774.e90508",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 550,
+        "y": 1360,
+        "wires": [
+            [
+                "83b37485.813f58"
+            ]
+        ]
+    },
+    {
+        "id": "774f2e2b.90a1d",
+        "type": "split",
+        "z": "58cf9774.e90508",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 550,
+        "y": 1300,
+        "wires": [
+            [
+                "83b37485.813f58"
+            ]
+        ]
+    },
+    {
+        "id": "b67e4372.d967",
+        "type": "split",
+        "z": "58cf9774.e90508",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 550,
+        "y": 1240,
+        "wires": [
+            [
+                "83b37485.813f58"
+            ]
+        ]
+    },
+    {
+        "id": "83b37485.813f58",
+        "type": "join",
+        "z": "58cf9774.e90508",
+        "name": "",
+        "mode": "custom",
+        "build": "array",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "3",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 790,
+        "y": 1240,
+        "wires": [
+            [
+                "2b4b9129.70b0ce"
+            ]
+        ]
+    },
+    {
+        "id": "3cb54413.b41cfc",
+        "type": "ui_chart",
+        "z": "58cf9774.e90508",
+        "name": "",
+        "group": "97785468.49ba18",
+        "order": 11,
+        "width": 0,
+        "height": 0,
+        "label": "Graph Shoe-Left - Angle",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 830,
+        "y": 1360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2b4b9129.70b0ce",
+        "type": "csv",
+        "z": "58cf9774.e90508",
+        "name": "",
+        "sep": ",",
+        "hdrin": true,
+        "hdrout": "none",
+        "multi": "one",
+        "ret": "\\r\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": false,
+        "include_empty_strings": true,
+        "include_null_values": "",
+        "x": 970,
+        "y": 1240,
+        "wires": [
+            [
+                "1073c810.09b9b8"
+            ]
+        ]
+    },
+    {
+        "id": "1073c810.09b9b8",
+        "type": "file",
+        "z": "58cf9774.e90508",
+        "name": "",
+        "filename": "D:\\Code lines of blackcat\\IOT\\MQTT\\saveloc\\limb\\limbleft.csv",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 1300,
+        "y": 1240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6a253aa2.d0d6f4",
+        "type": "mqtt in",
+        "z": "58cf9774.e90508",
+        "name": "Track device sharp 1",
+        "topic": "sharp",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "e994d0d.9f4cb3",
+        "x": 330,
+        "y": 500,
+        "wires": [
+            [
+                "2121da66.fac7f6",
+                "34818410.30945c"
+            ]
+        ]
+    },
+    {
+        "id": "e97ce726.6ad488",
+        "type": "mqtt in",
+        "z": "58cf9774.e90508",
+        "name": "Track device sharp 3",
+        "topic": "sharp2",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "e994d0d.9f4cb3",
+        "x": 330,
+        "y": 620,
+        "wires": [
+            [
+                "b0ac59f1.a88e58",
+                "49e9c1ea.8994b"
+            ]
+        ]
+    },
+    {
+        "id": "f43f52ee.d95ea",
+        "type": "mqtt in",
+        "z": "58cf9774.e90508",
+        "name": "Track device sharp 2",
+        "topic": "sharp1",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "e994d0d.9f4cb3",
+        "x": 330,
+        "y": 560,
+        "wires": [
+            [
+                "2184c5cd.04a8aa",
+                "6be85b57.94d564"
+            ]
+        ]
+    },
+    {
+        "id": "33a8e25e.a3092e",
+        "type": "mqtt in",
+        "z": "58cf9774.e90508",
+        "name": "Track device sharp 4",
+        "topic": "sharp3",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "e994d0d.9f4cb3",
+        "x": 330,
+        "y": 680,
+        "wires": [
+            [
+                "69213ad3.9f2904",
+                "8981a47d.b4e8d8"
+            ]
+        ]
+    },
+    {
+        "id": "2184c5cd.04a8aa",
+        "type": "split",
+        "z": "58cf9774.e90508",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 550,
+        "y": 560,
+        "wires": [
+            [
+                "36a6482a.18e0c8"
+            ]
+        ]
+    },
+    {
+        "id": "2121da66.fac7f6",
+        "type": "split",
+        "z": "58cf9774.e90508",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 550,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "69213ad3.9f2904",
+        "type": "split",
+        "z": "58cf9774.e90508",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 550,
+        "y": 700,
+        "wires": [
+            [
+                "36a6482a.18e0c8",
+                "839f4eb4.a0e3a"
+            ]
+        ]
+    },
+    {
+        "id": "b0ac59f1.a88e58",
+        "type": "split",
+        "z": "58cf9774.e90508",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 550,
+        "y": 620,
+        "wires": [
+            [
+                "36a6482a.18e0c8"
+            ]
+        ]
+    },
+    {
+        "id": "839f4eb4.a0e3a",
+        "type": "http request",
+        "z": "58cf9774.e90508",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 810,
+        "y": 720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "34818410.30945c",
+        "type": "ui_text",
+        "z": "58cf9774.e90508",
+        "group": "97785468.49ba18",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Track device sharp 1",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 840,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "8981a47d.b4e8d8",
+        "type": "ui_text",
+        "z": "58cf9774.e90508",
+        "group": "97785468.49ba18",
+        "order": 10,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Track device sharp 4",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 840,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "49e9c1ea.8994b",
+        "type": "ui_text",
+        "z": "58cf9774.e90508",
+        "group": "97785468.49ba18",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Track device sharp 3",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 840,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "6be85b57.94d564",
+        "type": "ui_text",
+        "z": "58cf9774.e90508",
+        "group": "97785468.49ba18",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Track device sharp 2",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 840,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "36a6482a.18e0c8",
+        "type": "join",
+        "z": "58cf9774.e90508",
+        "name": "",
+        "mode": "custom",
+        "build": "string",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 790,
+        "y": 460,
+        "wires": [
+            [
+                "1eb5dc88.d90cc3"
+            ]
+        ]
+    },
+    {
+        "id": "1eb5dc88.d90cc3",
+        "type": "csv",
+        "z": "58cf9774.e90508",
+        "name": "",
+        "sep": ",",
+        "hdrin": true,
+        "hdrout": "none",
+        "multi": "one",
+        "ret": "\\r\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": false,
+        "include_empty_strings": true,
+        "include_null_values": "",
+        "x": 970,
+        "y": 460,
+        "wires": [
+            [
+                "84c464bf.970478"
+            ]
+        ]
+    },
+    {
+        "id": "c5fc31dc.1966c",
+        "type": "comment",
+        "z": "58cf9774.e90508",
+        "name": "Track system",
+        "info": "",
+        "x": 310,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "84c464bf.970478",
+        "type": "file",
+        "z": "58cf9774.e90508",
+        "name": "",
+        "filename": "D:\\Code lines of blackcat\\IOT\\MQTT\\saveloc\\Strike-Left.csv",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 1300,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "59069a31.24d934",
+        "type": "comment",
+        "z": "58cf9774.e90508",
+        "name": "All devices connection status",
+        "info": "",
+        "x": 360,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "809c56bb.3cf128",
+        "type": "mqtt in",
+        "z": "58cf9774.e90508",
+        "name": "Track device sharp 1",
+        "topic": "sprinterdev/sharpdev1/constat",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "e994d0d.9f4cb3",
+        "x": 330,
+        "y": 180,
+        "wires": [
+            [
+                "e2b41a76.7ac008",
+                "a18030ef.d9dce"
+            ]
+        ]
+    },
+    {
+        "id": "e2b41a76.7ac008",
+        "type": "ui_text",
+        "z": "58cf9774.e90508",
+        "group": "97785468.49ba18",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "sharp 1 con stat",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 560,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "5289fa61.f08504",
+        "type": "mqtt in",
+        "z": "58cf9774.e90508",
+        "name": "Track device sharp 3",
+        "topic": "sprinterdev/sharpdev3/constat",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "e994d0d.9f4cb3",
+        "x": 330,
+        "y": 240,
+        "wires": [
+            [
+                "7cf5fd9a.139504"
+            ]
+        ]
+    },
+    {
+        "id": "7cf5fd9a.139504",
+        "type": "ui_text",
+        "z": "58cf9774.e90508",
+        "group": "97785468.49ba18",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "sharp 3 con stat",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 560,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "a524db17.0c72b8",
+        "type": "mqtt in",
+        "z": "58cf9774.e90508",
+        "name": "Arm motions device",
+        "topic": "sprinterdev/armmotion-left/constat",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "e994d0d.9f4cb3",
+        "x": 330,
+        "y": 300,
+        "wires": [
+            [
+                "b3ae8cd5.4bdea"
+            ]
+        ]
+    },
+    {
+        "id": "b3ae8cd5.4bdea",
+        "type": "ui_text",
+        "z": "58cf9774.e90508",
+        "group": "97785468.49ba18",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Arm left con stat",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 560,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "55cf2a87.351d24",
+        "type": "mqtt in",
+        "z": "58cf9774.e90508",
+        "name": "Smart Shoe",
+        "topic": "sprinterdev/shoe-left/constat",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "e994d0d.9f4cb3",
+        "x": 770,
+        "y": 300,
+        "wires": [
+            [
+                "53e49d6b.b6ab94"
+            ]
+        ]
+    },
+    {
+        "id": "53e49d6b.b6ab94",
+        "type": "ui_text",
+        "z": "58cf9774.e90508",
+        "group": "97785468.49ba18",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Smart shoe left con stat",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 990,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "2a5ce259.c4507e",
+        "type": "mqtt in",
+        "z": "58cf9774.e90508",
+        "name": "Track device sharp 2",
+        "topic": "sprinterdev/sharpdev2/constat",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "e994d0d.9f4cb3",
+        "x": 790,
+        "y": 180,
+        "wires": [
+            [
+                "5094b853.0962a8"
+            ]
+        ]
+    },
+    {
+        "id": "5094b853.0962a8",
+        "type": "ui_text",
+        "z": "58cf9774.e90508",
+        "group": "97785468.49ba18",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "sharp 2 con stat",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1020,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "972743dc.4722",
+        "type": "mqtt in",
+        "z": "58cf9774.e90508",
+        "name": "Track device sharp 4",
+        "topic": "sprinterdev/sharpdev4/constat",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "e994d0d.9f4cb3",
+        "x": 790,
+        "y": 240,
+        "wires": [
+            [
+                "fbbfb278.1c946"
+            ]
+        ]
+    },
+    {
+        "id": "fbbfb278.1c946",
+        "type": "ui_text",
+        "z": "58cf9774.e90508",
+        "group": "97785468.49ba18",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "sharp 4 con stat",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1020,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "dc8d8b60.4e0bd8",
+        "type": "debug",
+        "z": "58cf9774.e90508",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 570,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "54d110e8.71a39",
+        "type": "comment",
+        "z": "b18a8dde.6e7ec",
+        "name": "Arm motion - left",
+        "info": "",
+        "x": 460,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "bec4e46d.71b2b8",
+        "type": "file",
+        "z": "b18a8dde.6e7ec",
+        "name": "",
+        "filename": "D:\\Code lines of blackcat\\IOT\\MQTT\\saveloc\\arm\\armleft.csv",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 1440,
+        "y": 920,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4bda3744.539398",
+        "type": "csv",
+        "z": "b18a8dde.6e7ec",
+        "name": "",
+        "sep": ",",
+        "hdrin": true,
+        "hdrout": "once",
+        "multi": "one",
+        "ret": "\\r\\n",
+        "temp": "recno,time,angle",
+        "skip": "1",
+        "strings": false,
+        "include_empty_strings": true,
+        "include_null_values": true,
+        "x": 1110,
+        "y": 920,
+        "wires": [
+            [
+                "bec4e46d.71b2b8"
+            ]
+        ]
+    },
+    {
+        "id": "a7c7cea6.0b065",
+        "type": "join",
+        "z": "b18a8dde.6e7ec",
+        "name": "",
+        "mode": "custom",
+        "build": "array",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "3",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 930,
+        "y": 920,
+        "wires": [
+            [
+                "4bda3744.539398"
+            ]
+        ]
+    },
+    {
+        "id": "38eed7aa.adc1f8",
+        "type": "split",
+        "z": "b18a8dde.6e7ec",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 690,
+        "y": 1040,
+        "wires": [
+            [
+                "a7c7cea6.0b065"
+            ]
+        ]
+    },
+    {
+        "id": "c96416ac.d11c58",
+        "type": "split",
+        "z": "b18a8dde.6e7ec",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 690,
+        "y": 980,
+        "wires": [
+            [
+                "a7c7cea6.0b065"
+            ]
+        ]
+    },
+    {
+        "id": "417dfec.36b45",
+        "type": "split",
+        "z": "b18a8dde.6e7ec",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 690,
+        "y": 920,
+        "wires": [
+            [
+                "a7c7cea6.0b065"
+            ]
+        ]
+    },
+    {
+        "id": "33bf0dfe.6584f2",
+        "type": "mqtt in",
+        "z": "b18a8dde.6e7ec",
+        "name": "Arm Motion - Left",
+        "topic": "sprinterdev/arm-left/angle",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "e994d0d.9f4cb3",
+        "x": 460,
+        "y": 1040,
+        "wires": [
+            [
+                "38eed7aa.adc1f8",
+                "e591bee.b12684",
+                "157d908a.4156cf"
+            ]
+        ]
+    },
+    {
+        "id": "c7a49fe0.5107b",
+        "type": "mqtt in",
+        "z": "b18a8dde.6e7ec",
+        "name": "TimeStamp",
+        "topic": "sprinterdev/arm-left/time",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "e994d0d.9f4cb3",
+        "x": 450,
+        "y": 980,
+        "wires": [
+            [
+                "c96416ac.d11c58",
+                "157d908a.4156cf"
+            ]
+        ]
+    },
+    {
+        "id": "3f224797.343d18",
+        "type": "mqtt in",
+        "z": "b18a8dde.6e7ec",
+        "name": "Rec Number",
+        "topic": "sprinterdev/arm-left/recno",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "e994d0d.9f4cb3",
+        "x": 450,
+        "y": 920,
+        "wires": [
+            [
+                "417dfec.36b45",
+                "157d908a.4156cf"
+            ]
+        ]
+    },
+    {
+        "id": "e591bee.b12684",
+        "type": "ui_chart",
+        "z": "b18a8dde.6e7ec",
+        "name": "",
+        "group": "97785468.49ba18",
+        "order": 15,
+        "width": "0",
+        "height": "0",
+        "label": "Graph Arm Motion - Left",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 950,
+        "y": 1040,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "620cc6a7.8cf7f8",
+        "type": "mqtt in",
+        "z": "b18a8dde.6e7ec",
+        "name": "Forefoot-strike",
+        "topic": "esp8266/forefoot",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "e994d0d.9f4cb3",
+        "x": 450,
+        "y": 1620,
+        "wires": [
+            [
+                "445a1050.db9c4",
+                "75b44770.cf9668"
+            ]
+        ]
+    },
+    {
+        "id": "445a1050.db9c4",
+        "type": "split",
+        "z": "b18a8dde.6e7ec",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 690,
+        "y": 1620,
+        "wires": [
+            [
+                "f0904dad.9c807"
+            ]
+        ]
+    },
+    {
+        "id": "f0904dad.9c807",
+        "type": "join",
+        "z": "b18a8dde.6e7ec",
+        "name": "",
+        "mode": "custom",
+        "build": "array",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "5",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 930,
+        "y": 1520,
+        "wires": [
+            [
+                "8ef4d474.eeb2c8",
+                "861055f1.63d618"
+            ]
+        ]
+    },
+    {
+        "id": "8ef4d474.eeb2c8",
+        "type": "debug",
+        "z": "b18a8dde.6e7ec",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1130,
+        "y": 1480,
+        "wires": []
+    },
+    {
+        "id": "861055f1.63d618",
+        "type": "csv",
+        "z": "b18a8dde.6e7ec",
+        "name": "",
+        "sep": ",",
+        "hdrin": true,
+        "hdrout": "none",
+        "multi": "one",
+        "ret": "\\r\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": false,
+        "include_empty_strings": true,
+        "include_null_values": "",
+        "x": 1110,
+        "y": 1520,
+        "wires": [
+            [
+                "97dbe4df.f26928"
+            ]
+        ]
+    },
+    {
+        "id": "245bf1a.00c300e",
+        "type": "split",
+        "z": "b18a8dde.6e7ec",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 690,
+        "y": 1500,
+        "wires": [
+            [
+                "f0904dad.9c807"
+            ]
+        ]
+    },
+    {
+        "id": "4172ebe4.5359b4",
+        "type": "split",
+        "z": "b18a8dde.6e7ec",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 690,
+        "y": 1440,
+        "wires": [
+            [
+                "f0904dad.9c807"
+            ]
+        ]
+    },
+    {
+        "id": "70085667.0e3dc8",
+        "type": "split",
+        "z": "b18a8dde.6e7ec",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 690,
+        "y": 1680,
+        "wires": [
+            [
+                "f0904dad.9c807"
+            ]
+        ]
+    },
+    {
+        "id": "f1c76381.89c5e",
+        "type": "split",
+        "z": "b18a8dde.6e7ec",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 690,
+        "y": 1740,
+        "wires": [
+            [
+                "f0904dad.9c807",
+                "ab9afd1b.aa411"
+            ]
+        ]
+    },
+    {
+        "id": "670933ce.2584ac",
+        "type": "mqtt in",
+        "z": "b18a8dde.6e7ec",
+        "name": "Midfoot-strike",
+        "topic": "esp8266/rarefooot",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "e994d0d.9f4cb3",
+        "x": 450,
+        "y": 1680,
+        "wires": [
+            [
+                "70085667.0e3dc8",
+                "5384476c.9a8888"
+            ]
+        ]
+    },
+    {
+        "id": "5e51f191.e1835",
+        "type": "mqtt in",
+        "z": "b18a8dde.6e7ec",
+        "name": "Rearfoot-strike",
+        "topic": "esp8266/midfoot",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "e994d0d.9f4cb3",
+        "x": 460,
+        "y": 1740,
+        "wires": [
+            [
+                "f1c76381.89c5e"
+            ]
+        ]
+    },
+    {
+        "id": "93c77555.ab8fe8",
+        "type": "comment",
+        "z": "b18a8dde.6e7ec",
+        "name": "Shoe footstrike (Left)",
+        "info": "",
+        "x": 470,
+        "y": 1560,
+        "wires": []
+    },
+    {
+        "id": "75b44770.cf9668",
+        "type": "ui_chart",
+        "z": "b18a8dde.6e7ec",
+        "name": "",
+        "group": "97785468.49ba18",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "label": "Graph Shoe - Forefoot",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "1000",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 980,
+        "y": 1620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5384476c.9a8888",
+        "type": "ui_chart",
+        "z": "b18a8dde.6e7ec",
+        "name": "",
+        "group": "97785468.49ba18",
+        "order": 13,
+        "width": 0,
+        "height": 0,
+        "label": "Graph Shoe - Rearfooot ",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "1000",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 990,
+        "y": 1680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ab9afd1b.aa411",
+        "type": "ui_chart",
+        "z": "b18a8dde.6e7ec",
+        "name": "",
+        "group": "97785468.49ba18",
+        "order": 14,
+        "width": 0,
+        "height": 0,
+        "label": "Graph Shoe - Midfoot",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "1000",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 980,
+        "y": 1740,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "97dbe4df.f26928",
+        "type": "file",
+        "z": "b18a8dde.6e7ec",
+        "name": "",
+        "filename": "D:\\Code lines of blackcat\\IOT\\MQTT\\saveloc\\Strike-Left.csv",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 1440,
+        "y": 1520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e76dc7b6.721318",
+        "type": "mqtt in",
+        "z": "b18a8dde.6e7ec",
+        "name": "Rec Number",
+        "topic": "shoe/recno",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "e994d0d.9f4cb3",
+        "x": 450,
+        "y": 1260,
+        "wires": [
+            [
+                "cb9c4054.11347",
+                "4172ebe4.5359b4"
+            ]
+        ]
+    },
+    {
+        "id": "905483c2.34dd1",
+        "type": "comment",
+        "z": "b18a8dde.6e7ec",
+        "name": "Shoe angle (Left)",
+        "info": "",
+        "x": 460,
+        "y": 1220,
+        "wires": []
+    },
+    {
+        "id": "14e944c8.8b8ccb",
+        "type": "mqtt in",
+        "z": "b18a8dde.6e7ec",
+        "name": "TimeStamp",
+        "topic": "shoe/time",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "e994d0d.9f4cb3",
+        "x": 450,
+        "y": 1320,
+        "wires": [
+            [
+                "9e853dae.2fc37",
+                "245bf1a.00c300e"
+            ]
+        ]
+    },
+    {
+        "id": "34955961.1d2316",
+        "type": "mqtt in",
+        "z": "b18a8dde.6e7ec",
+        "name": "Shoe-Left-Angle",
+        "topic": "sprinterDev/mpu6056-left/recno",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "e994d0d.9f4cb3",
+        "x": 460,
+        "y": 1380,
+        "wires": [
+            [
+                "7cf764b9.99daec",
+                "d358d1c5.49bb6"
+            ]
+        ]
+    },
+    {
+        "id": "7cf764b9.99daec",
+        "type": "split",
+        "z": "b18a8dde.6e7ec",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 690,
+        "y": 1380,
+        "wires": [
+            [
+                "fa4a035e.ac5e3"
+            ]
+        ]
+    },
+    {
+        "id": "9e853dae.2fc37",
+        "type": "split",
+        "z": "b18a8dde.6e7ec",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 690,
+        "y": 1320,
+        "wires": [
+            [
+                "fa4a035e.ac5e3"
+            ]
+        ]
+    },
+    {
+        "id": "cb9c4054.11347",
+        "type": "split",
+        "z": "b18a8dde.6e7ec",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 690,
+        "y": 1260,
+        "wires": [
+            [
+                "fa4a035e.ac5e3"
+            ]
+        ]
+    },
+    {
+        "id": "fa4a035e.ac5e3",
+        "type": "join",
+        "z": "b18a8dde.6e7ec",
+        "name": "",
+        "mode": "custom",
+        "build": "array",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "3",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 930,
+        "y": 1260,
+        "wires": [
+            [
+                "e6074b9e.451428"
+            ]
+        ]
+    },
+    {
+        "id": "d358d1c5.49bb6",
+        "type": "ui_chart",
+        "z": "b18a8dde.6e7ec",
+        "name": "",
+        "group": "97785468.49ba18",
+        "order": 11,
+        "width": 0,
+        "height": 0,
+        "label": "Graph Shoe-Left - Angle",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 970,
+        "y": 1380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e6074b9e.451428",
+        "type": "csv",
+        "z": "b18a8dde.6e7ec",
+        "name": "",
+        "sep": ",",
+        "hdrin": true,
+        "hdrout": "none",
+        "multi": "one",
+        "ret": "\\r\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": false,
+        "include_empty_strings": true,
+        "include_null_values": "",
+        "x": 1110,
+        "y": 1260,
+        "wires": [
+            [
+                "960f5d47.0babb"
+            ]
+        ]
+    },
+    {
+        "id": "960f5d47.0babb",
+        "type": "file",
+        "z": "b18a8dde.6e7ec",
+        "name": "",
+        "filename": "D:\\Code lines of blackcat\\IOT\\MQTT\\saveloc\\limb\\limbleft.csv",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 1440,
+        "y": 1260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e2d5ab25.d83608",
+        "type": "mqtt in",
+        "z": "b18a8dde.6e7ec",
+        "name": "Track device sharp 1",
+        "topic": "sharp",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "e994d0d.9f4cb3",
+        "x": 470,
+        "y": 520,
+        "wires": [
+            [
+                "b5e8383c.4a8c58",
+                "2a815fc8.c47d2"
+            ]
+        ]
+    },
+    {
+        "id": "2f642cb8.4e5cd4",
+        "type": "mqtt in",
+        "z": "b18a8dde.6e7ec",
+        "name": "Track device sharp 3",
+        "topic": "sharp2",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "e994d0d.9f4cb3",
+        "x": 470,
+        "y": 640,
+        "wires": [
+            [
+                "740d2fa9.06dd2",
+                "71a102a7.08e51c"
+            ]
+        ]
+    },
+    {
+        "id": "355511f2.948c4e",
+        "type": "mqtt in",
+        "z": "b18a8dde.6e7ec",
+        "name": "Track device sharp 2",
+        "topic": "sharp1",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "e994d0d.9f4cb3",
+        "x": 470,
+        "y": 580,
+        "wires": [
+            [
+                "f099813d.8a491",
+                "54e7b45b.62224c"
+            ]
+        ]
+    },
+    {
+        "id": "5b71d683.265bc8",
+        "type": "mqtt in",
+        "z": "b18a8dde.6e7ec",
+        "name": "Track device sharp 4",
+        "topic": "sharp3",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "e994d0d.9f4cb3",
+        "x": 470,
+        "y": 700,
+        "wires": [
+            [
+                "15d832a2.3d7a2d",
+                "81d0f40.c6c451"
+            ]
+        ]
+    },
+    {
+        "id": "f099813d.8a491",
+        "type": "split",
+        "z": "b18a8dde.6e7ec",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 690,
+        "y": 580,
+        "wires": [
+            [
+                "18f1067c.56535a"
+            ]
+        ]
+    },
+    {
+        "id": "b5e8383c.4a8c58",
+        "type": "split",
+        "z": "b18a8dde.6e7ec",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 690,
+        "y": 520,
+        "wires": [
+            [
+                "18f1067c.56535a"
+            ]
+        ]
+    },
+    {
+        "id": "15d832a2.3d7a2d",
+        "type": "split",
+        "z": "b18a8dde.6e7ec",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 690,
+        "y": 720,
+        "wires": [
+            [
+                "18f1067c.56535a",
+                "bd7b6bb9.9f1118"
+            ]
+        ]
+    },
+    {
+        "id": "740d2fa9.06dd2",
+        "type": "split",
+        "z": "b18a8dde.6e7ec",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 690,
+        "y": 640,
+        "wires": [
+            [
+                "18f1067c.56535a"
+            ]
+        ]
+    },
+    {
+        "id": "bd7b6bb9.9f1118",
+        "type": "http request",
+        "z": "b18a8dde.6e7ec",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 950,
+        "y": 740,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2a815fc8.c47d2",
+        "type": "ui_text",
+        "z": "b18a8dde.6e7ec",
+        "group": "97785468.49ba18",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Track device sharp 1",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 980,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "81d0f40.c6c451",
+        "type": "ui_text",
+        "z": "b18a8dde.6e7ec",
+        "group": "97785468.49ba18",
+        "order": 10,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Track device sharp 4",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 980,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "71a102a7.08e51c",
+        "type": "ui_text",
+        "z": "b18a8dde.6e7ec",
+        "group": "97785468.49ba18",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Track device sharp 3",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 980,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "54e7b45b.62224c",
+        "type": "ui_text",
+        "z": "b18a8dde.6e7ec",
+        "group": "97785468.49ba18",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Track device sharp 2",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 980,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "18f1067c.56535a",
+        "type": "join",
+        "z": "b18a8dde.6e7ec",
+        "name": "",
+        "mode": "custom",
+        "build": "string",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 930,
+        "y": 480,
+        "wires": [
+            [
+                "306918f9.ceb088"
+            ]
+        ]
+    },
+    {
+        "id": "306918f9.ceb088",
+        "type": "csv",
+        "z": "b18a8dde.6e7ec",
+        "name": "",
+        "sep": ",",
+        "hdrin": true,
+        "hdrout": "none",
+        "multi": "one",
+        "ret": "\\r\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": false,
+        "include_empty_strings": true,
+        "include_null_values": "",
+        "x": 1110,
+        "y": 480,
+        "wires": [
+            [
+                "4e64b578.af5c9c"
+            ]
+        ]
+    },
+    {
+        "id": "c5f337db.1086f8",
+        "type": "comment",
+        "z": "b18a8dde.6e7ec",
+        "name": "Track system",
+        "info": "",
+        "x": 450,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "4e64b578.af5c9c",
+        "type": "file",
+        "z": "b18a8dde.6e7ec",
+        "name": "",
+        "filename": "D:\\Code lines of blackcat\\IOT\\MQTT\\saveloc\\Strike-Left.csv",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 1440,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1408d140.2a23bf",
+        "type": "comment",
+        "z": "b18a8dde.6e7ec",
+        "name": "All devices connection status",
+        "info": "",
+        "x": 500,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "f9377b46.bd2cf8",
+        "type": "mqtt in",
+        "z": "b18a8dde.6e7ec",
+        "name": "Track device sharp 1",
+        "topic": "sprinterdev/sharpdev1/constat",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "e994d0d.9f4cb3",
+        "x": 470,
+        "y": 200,
+        "wires": [
+            [
+                "ba021ce.3459fe"
+            ]
+        ]
+    },
+    {
+        "id": "ba021ce.3459fe",
+        "type": "ui_text",
+        "z": "b18a8dde.6e7ec",
+        "group": "97785468.49ba18",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "sharp 1 con stat",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 700,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "c511986f.4865b8",
+        "type": "mqtt in",
+        "z": "b18a8dde.6e7ec",
+        "name": "Track device sharp 3",
+        "topic": "sprinterdev/sharpdev3/constat",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "e994d0d.9f4cb3",
+        "x": 470,
+        "y": 260,
+        "wires": [
+            [
+                "2c89999.efc6066"
+            ]
+        ]
+    },
+    {
+        "id": "2c89999.efc6066",
+        "type": "ui_text",
+        "z": "b18a8dde.6e7ec",
+        "group": "97785468.49ba18",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "sharp 3 con stat",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 700,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "53794b29.ecd914",
+        "type": "mqtt in",
+        "z": "b18a8dde.6e7ec",
+        "name": "Arm motions device",
+        "topic": "sprinterdev/armmotion-left/constat",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "e994d0d.9f4cb3",
+        "x": 470,
+        "y": 320,
+        "wires": [
+            [
+                "5f30e21d.a2ffdc"
+            ]
+        ]
+    },
+    {
+        "id": "5f30e21d.a2ffdc",
+        "type": "ui_text",
+        "z": "b18a8dde.6e7ec",
+        "group": "97785468.49ba18",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Arm left con stat",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 700,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "ec19c3c0.b4bfc",
+        "type": "mqtt in",
+        "z": "b18a8dde.6e7ec",
+        "name": "Smart Shoe",
+        "topic": "sprinterdev/shoe-left/constat",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "e994d0d.9f4cb3",
+        "x": 910,
+        "y": 320,
+        "wires": [
+            [
+                "a68e682b.a79248"
+            ]
+        ]
+    },
+    {
+        "id": "a68e682b.a79248",
+        "type": "ui_text",
+        "z": "b18a8dde.6e7ec",
+        "group": "97785468.49ba18",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Smart shoe left con stat",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1130,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "f2f55d70.d2b29",
+        "type": "mqtt in",
+        "z": "b18a8dde.6e7ec",
+        "name": "Track device sharp 2",
+        "topic": "sprinterdev/sharpdev2/constat",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "e994d0d.9f4cb3",
+        "x": 930,
+        "y": 200,
+        "wires": [
+            [
+                "a908e1fb.3ef46"
+            ]
+        ]
+    },
+    {
+        "id": "a908e1fb.3ef46",
+        "type": "ui_text",
+        "z": "b18a8dde.6e7ec",
+        "group": "97785468.49ba18",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "sharp 2 con stat",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1160,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "9296b793.43b6d8",
+        "type": "mqtt in",
+        "z": "b18a8dde.6e7ec",
+        "name": "Track device sharp 4",
+        "topic": "sprinterdev/sharpdev4/constat",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "e994d0d.9f4cb3",
+        "x": 930,
+        "y": 260,
+        "wires": [
+            [
+                "c34065f1.f91c78"
+            ]
+        ]
+    },
+    {
+        "id": "c34065f1.f91c78",
+        "type": "ui_text",
+        "z": "b18a8dde.6e7ec",
+        "group": "97785468.49ba18",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "sharp 4 con stat",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1160,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "157d908a.4156cf",
+        "type": "debug",
+        "z": "b18a8dde.6e7ec",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 710,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "a18030ef.d9dce",
+        "type": "function",
+        "z": "58cf9774.e90508",
+        "name": "",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 550,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ea89b4bc.fe1358",
+        "type": "comment",
+        "z": "ced3d84f.5e98f8",
+        "name": "Arm motion - left",
+        "info": "",
+        "x": 420,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "4a300c03.292bc4",
+        "type": "file",
+        "z": "ced3d84f.5e98f8",
+        "name": "",
+        "filename": "D:\\data\\sprinter\\arm\\arm_left.csv",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 1310,
+        "y": 940,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b57db62b.d33ff8",
+        "type": "csv",
+        "z": "ced3d84f.5e98f8",
+        "name": "",
+        "sep": ",",
+        "hdrin": true,
+        "hdrout": "once",
+        "multi": "one",
+        "ret": "\\r\\n",
+        "temp": "recno,time,angle",
+        "skip": "1",
+        "strings": false,
+        "include_empty_strings": true,
+        "include_null_values": true,
+        "x": 1070,
+        "y": 940,
+        "wires": [
+            [
+                "4a300c03.292bc4"
+            ]
+        ]
+    },
+    {
+        "id": "9e61a8c2.ba7918",
+        "type": "join",
+        "z": "ced3d84f.5e98f8",
+        "name": "",
+        "mode": "custom",
+        "build": "array",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "3",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 890,
+        "y": 940,
+        "wires": [
+            [
+                "b57db62b.d33ff8"
+            ]
+        ]
+    },
+    {
+        "id": "d3101df0.451d4",
+        "type": "split",
+        "z": "ced3d84f.5e98f8",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 650,
+        "y": 1060,
+        "wires": [
+            [
+                "9e61a8c2.ba7918"
+            ]
+        ]
+    },
+    {
+        "id": "6cd6c443.e1d92c",
+        "type": "split",
+        "z": "ced3d84f.5e98f8",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 650,
+        "y": 1000,
+        "wires": [
+            [
+                "9e61a8c2.ba7918"
+            ]
+        ]
+    },
+    {
+        "id": "1ccb8d46.fd4a83",
+        "type": "split",
+        "z": "ced3d84f.5e98f8",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 650,
+        "y": 940,
+        "wires": [
+            [
+                "9e61a8c2.ba7918"
+            ]
+        ]
+    },
+    {
+        "id": "c1d4df63.d187f",
+        "type": "mqtt in",
+        "z": "ced3d84f.5e98f8",
+        "name": "Arm Motion - Left",
+        "topic": "sprinterdev/arm-left/angle",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "e994d0d.9f4cb3",
+        "x": 420,
+        "y": 1060,
+        "wires": [
+            [
+                "d3101df0.451d4",
+                "acf1063a.ed4298",
+                "9e54cb59.538b98"
+            ]
+        ]
+    },
+    {
+        "id": "9b6ae48d.504538",
+        "type": "mqtt in",
+        "z": "ced3d84f.5e98f8",
+        "name": "TimeStamp",
+        "topic": "sprinterdev/arm-left/time",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "e994d0d.9f4cb3",
+        "x": 410,
+        "y": 1000,
+        "wires": [
+            [
+                "6cd6c443.e1d92c",
+                "9e54cb59.538b98"
+            ]
+        ]
+    },
+    {
+        "id": "b0e5d9d5.06b8a8",
+        "type": "mqtt in",
+        "z": "ced3d84f.5e98f8",
+        "name": "Rec Number",
+        "topic": "sprinterdev/arm-left/recno",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "e994d0d.9f4cb3",
+        "x": 410,
+        "y": 940,
+        "wires": [
+            [
+                "1ccb8d46.fd4a83",
+                "9e54cb59.538b98"
+            ]
+        ]
+    },
+    {
+        "id": "acf1063a.ed4298",
+        "type": "ui_chart",
+        "z": "ced3d84f.5e98f8",
+        "name": "",
+        "group": "97785468.49ba18",
+        "order": 15,
+        "width": "0",
+        "height": "0",
+        "label": "Graph Arm Motion - Left",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 910,
+        "y": 1060,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c82e028e.b56fb",
+        "type": "mqtt in",
+        "z": "ced3d84f.5e98f8",
+        "name": "Forefoot-strike",
+        "topic": "esp8266/forefoot",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "e994d0d.9f4cb3",
+        "x": 410,
+        "y": 1640,
+        "wires": [
+            [
+                "93305bf0.4ba9a8",
+                "b408a5d8.635238"
+            ]
+        ]
+    },
+    {
+        "id": "93305bf0.4ba9a8",
+        "type": "split",
+        "z": "ced3d84f.5e98f8",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 650,
+        "y": 1640,
+        "wires": [
+            [
+                "2688aefc.072bb2"
+            ]
+        ]
+    },
+    {
+        "id": "2688aefc.072bb2",
+        "type": "join",
+        "z": "ced3d84f.5e98f8",
+        "name": "",
+        "mode": "custom",
+        "build": "array",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "5",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 890,
+        "y": 1540,
+        "wires": [
+            [
+                "1b53d69.1970129",
+                "8386c5f.03a0338"
+            ]
+        ]
+    },
+    {
+        "id": "1b53d69.1970129",
+        "type": "debug",
+        "z": "ced3d84f.5e98f8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1090,
+        "y": 1500,
+        "wires": []
+    },
+    {
+        "id": "8386c5f.03a0338",
+        "type": "csv",
+        "z": "ced3d84f.5e98f8",
+        "name": "",
+        "sep": ",",
+        "hdrin": true,
+        "hdrout": "none",
+        "multi": "one",
+        "ret": "\\r\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": false,
+        "include_empty_strings": true,
+        "include_null_values": "",
+        "x": 1070,
+        "y": 1540,
+        "wires": [
+            [
+                "2b411e8d.9ee8a2"
+            ]
+        ]
+    },
+    {
+        "id": "1ef2da2f.e02cd6",
+        "type": "split",
+        "z": "ced3d84f.5e98f8",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 650,
+        "y": 1520,
+        "wires": [
+            [
+                "2688aefc.072bb2"
+            ]
+        ]
+    },
+    {
+        "id": "b81c815d.f45c1",
+        "type": "split",
+        "z": "ced3d84f.5e98f8",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 650,
+        "y": 1460,
+        "wires": [
+            [
+                "2688aefc.072bb2"
+            ]
+        ]
+    },
+    {
+        "id": "25ee6106.dae3ee",
+        "type": "split",
+        "z": "ced3d84f.5e98f8",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 650,
+        "y": 1700,
+        "wires": [
+            [
+                "2688aefc.072bb2"
+            ]
+        ]
+    },
+    {
+        "id": "19ab5d09.9a3be3",
+        "type": "split",
+        "z": "ced3d84f.5e98f8",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 650,
+        "y": 1760,
+        "wires": [
+            [
+                "2688aefc.072bb2",
+                "3d1a9fb3.1cbba"
+            ]
+        ]
+    },
+    {
+        "id": "f7451996.093258",
+        "type": "mqtt in",
+        "z": "ced3d84f.5e98f8",
+        "name": "Midfoot-strike",
+        "topic": "esp8266/rarefooot",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "e994d0d.9f4cb3",
+        "x": 410,
+        "y": 1700,
+        "wires": [
+            [
+                "25ee6106.dae3ee",
+                "503ea343.69b00c"
+            ]
+        ]
+    },
+    {
+        "id": "1d69ade7.f1d2b2",
+        "type": "mqtt in",
+        "z": "ced3d84f.5e98f8",
+        "name": "Rearfoot-strike",
+        "topic": "esp8266/midfoot",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "e994d0d.9f4cb3",
+        "x": 420,
+        "y": 1760,
+        "wires": [
+            [
+                "19ab5d09.9a3be3"
+            ]
+        ]
+    },
+    {
+        "id": "456a895f.4725e8",
+        "type": "comment",
+        "z": "ced3d84f.5e98f8",
+        "name": "Shoe footstrike (Left)",
+        "info": "",
+        "x": 430,
+        "y": 1580,
+        "wires": []
+    },
+    {
+        "id": "b408a5d8.635238",
+        "type": "ui_chart",
+        "z": "ced3d84f.5e98f8",
+        "name": "",
+        "group": "97785468.49ba18",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "label": "Graph Shoe - Forefoot",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "1000",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 940,
+        "y": 1640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "503ea343.69b00c",
+        "type": "ui_chart",
+        "z": "ced3d84f.5e98f8",
+        "name": "",
+        "group": "97785468.49ba18",
+        "order": 13,
+        "width": 0,
+        "height": 0,
+        "label": "Graph Shoe - Rearfooot ",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "1000",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 950,
+        "y": 1700,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3d1a9fb3.1cbba",
+        "type": "ui_chart",
+        "z": "ced3d84f.5e98f8",
+        "name": "",
+        "group": "97785468.49ba18",
+        "order": 14,
+        "width": 0,
+        "height": 0,
+        "label": "Graph Shoe - Midfoot",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "1000",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 940,
+        "y": 1760,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2b411e8d.9ee8a2",
+        "type": "file",
+        "z": "ced3d84f.5e98f8",
+        "name": "",
+        "filename": "D:\\Code lines of blackcat\\IOT\\MQTT\\saveloc\\Strike-Left.csv",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 1400,
+        "y": 1540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "21d7506f.f7dd9",
+        "type": "mqtt in",
+        "z": "ced3d84f.5e98f8",
+        "name": "Rec Number",
+        "topic": "shoe/recno",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "e994d0d.9f4cb3",
+        "x": 410,
+        "y": 1280,
+        "wires": [
+            [
+                "91c14e4b.99ca2",
+                "b81c815d.f45c1"
+            ]
+        ]
+    },
+    {
+        "id": "87ae471a.e86b28",
+        "type": "comment",
+        "z": "ced3d84f.5e98f8",
+        "name": "Shoe angle (Left)",
+        "info": "",
+        "x": 420,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "81f9004f.7e8f4",
+        "type": "mqtt in",
+        "z": "ced3d84f.5e98f8",
+        "name": "TimeStamp",
+        "topic": "shoe/time",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "e994d0d.9f4cb3",
+        "x": 410,
+        "y": 1340,
+        "wires": [
+            [
+                "6110ca06.462614",
+                "1ef2da2f.e02cd6"
+            ]
+        ]
+    },
+    {
+        "id": "b6877b61.e9f6f8",
+        "type": "mqtt in",
+        "z": "ced3d84f.5e98f8",
+        "name": "Shoe-Left-Angle",
+        "topic": "sprinterDev/mpu6056-left/recno",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "e994d0d.9f4cb3",
+        "x": 420,
+        "y": 1400,
+        "wires": [
+            [
+                "d5441bc4.9fb2d8",
+                "2c068f1e.5730e"
+            ]
+        ]
+    },
+    {
+        "id": "d5441bc4.9fb2d8",
+        "type": "split",
+        "z": "ced3d84f.5e98f8",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 650,
+        "y": 1400,
+        "wires": [
+            [
+                "33060b88.7ce8f4"
+            ]
+        ]
+    },
+    {
+        "id": "6110ca06.462614",
+        "type": "split",
+        "z": "ced3d84f.5e98f8",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 650,
+        "y": 1340,
+        "wires": [
+            [
+                "33060b88.7ce8f4"
+            ]
+        ]
+    },
+    {
+        "id": "91c14e4b.99ca2",
+        "type": "split",
+        "z": "ced3d84f.5e98f8",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 650,
+        "y": 1280,
+        "wires": [
+            [
+                "33060b88.7ce8f4"
+            ]
+        ]
+    },
+    {
+        "id": "33060b88.7ce8f4",
+        "type": "join",
+        "z": "ced3d84f.5e98f8",
+        "name": "",
+        "mode": "custom",
+        "build": "array",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "3",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 890,
+        "y": 1280,
+        "wires": [
+            [
+                "56827293.af708c"
+            ]
+        ]
+    },
+    {
+        "id": "2c068f1e.5730e",
+        "type": "ui_chart",
+        "z": "ced3d84f.5e98f8",
+        "name": "",
+        "group": "97785468.49ba18",
+        "order": 11,
+        "width": 0,
+        "height": 0,
+        "label": "Graph Shoe-Left - Angle",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 930,
+        "y": 1400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "56827293.af708c",
+        "type": "csv",
+        "z": "ced3d84f.5e98f8",
+        "name": "",
+        "sep": ",",
+        "hdrin": true,
+        "hdrout": "none",
+        "multi": "one",
+        "ret": "\\r\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": false,
+        "include_empty_strings": true,
+        "include_null_values": "",
+        "x": 1070,
+        "y": 1280,
+        "wires": [
+            [
+                "9c1dae7.807295"
+            ]
+        ]
+    },
+    {
+        "id": "9c1dae7.807295",
+        "type": "file",
+        "z": "ced3d84f.5e98f8",
+        "name": "",
+        "filename": "D:\\Code lines of blackcat\\IOT\\MQTT\\saveloc\\limb\\limbleft.csv",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 1400,
+        "y": 1280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "36eeab9.576be54",
+        "type": "mqtt in",
+        "z": "ced3d84f.5e98f8",
+        "name": "Track device sharp 1",
+        "topic": "sharp",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "e994d0d.9f4cb3",
+        "x": 430,
+        "y": 540,
+        "wires": [
+            [
+                "d15811ee.64464",
+                "16fbfd6c.05e5a3"
+            ]
+        ]
+    },
+    {
+        "id": "bf0d1d6b.8543a",
+        "type": "mqtt in",
+        "z": "ced3d84f.5e98f8",
+        "name": "Track device sharp 3",
+        "topic": "sharp2",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "e994d0d.9f4cb3",
+        "x": 430,
+        "y": 660,
+        "wires": [
+            [
+                "688bcc8b.ee8664",
+                "87949b3.1fa7868"
+            ]
+        ]
+    },
+    {
+        "id": "ab2fbc2e.ecfc",
+        "type": "mqtt in",
+        "z": "ced3d84f.5e98f8",
+        "name": "Track device sharp 2",
+        "topic": "sharp1",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "e994d0d.9f4cb3",
+        "x": 430,
+        "y": 600,
+        "wires": [
+            [
+                "474ff31b.92d9ac",
+                "b785c8f1.1ccf38"
+            ]
+        ]
+    },
+    {
+        "id": "610d3eea.fe1de",
+        "type": "mqtt in",
+        "z": "ced3d84f.5e98f8",
+        "name": "Track device sharp 4",
+        "topic": "sharp3",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "e994d0d.9f4cb3",
+        "x": 430,
+        "y": 720,
+        "wires": [
+            [
+                "fc7842d4.e35df",
+                "c796cc35.5f07f"
+            ]
+        ]
+    },
+    {
+        "id": "474ff31b.92d9ac",
+        "type": "split",
+        "z": "ced3d84f.5e98f8",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 650,
+        "y": 600,
+        "wires": [
+            [
+                "22b6393b.731916"
+            ]
+        ]
+    },
+    {
+        "id": "d15811ee.64464",
+        "type": "split",
+        "z": "ced3d84f.5e98f8",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 650,
+        "y": 540,
+        "wires": [
+            [
+                "22b6393b.731916"
+            ]
+        ]
+    },
+    {
+        "id": "fc7842d4.e35df",
+        "type": "split",
+        "z": "ced3d84f.5e98f8",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 650,
+        "y": 740,
+        "wires": [
+            [
+                "22b6393b.731916",
+                "cbfe10be.4faaf"
+            ]
+        ]
+    },
+    {
+        "id": "688bcc8b.ee8664",
+        "type": "split",
+        "z": "ced3d84f.5e98f8",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 650,
+        "y": 660,
+        "wires": [
+            [
+                "22b6393b.731916"
+            ]
+        ]
+    },
+    {
+        "id": "cbfe10be.4faaf",
+        "type": "http request",
+        "z": "ced3d84f.5e98f8",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 910,
+        "y": 760,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "16fbfd6c.05e5a3",
+        "type": "ui_text",
+        "z": "ced3d84f.5e98f8",
+        "group": "97785468.49ba18",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Track device sharp 1",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 940,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "c796cc35.5f07f",
+        "type": "ui_text",
+        "z": "ced3d84f.5e98f8",
+        "group": "97785468.49ba18",
+        "order": 10,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Track device sharp 4",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 940,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "87949b3.1fa7868",
+        "type": "ui_text",
+        "z": "ced3d84f.5e98f8",
+        "group": "97785468.49ba18",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Track device sharp 3",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 940,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "b785c8f1.1ccf38",
+        "type": "ui_text",
+        "z": "ced3d84f.5e98f8",
+        "group": "97785468.49ba18",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Track device sharp 2",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 940,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "22b6393b.731916",
+        "type": "join",
+        "z": "ced3d84f.5e98f8",
+        "name": "",
+        "mode": "custom",
+        "build": "string",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 890,
+        "y": 500,
+        "wires": [
+            [
+                "59dc279a.855d58"
+            ]
+        ]
+    },
+    {
+        "id": "59dc279a.855d58",
+        "type": "csv",
+        "z": "ced3d84f.5e98f8",
+        "name": "",
+        "sep": ",",
+        "hdrin": true,
+        "hdrout": "none",
+        "multi": "one",
+        "ret": "\\r\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": false,
+        "include_empty_strings": true,
+        "include_null_values": "",
+        "x": 1070,
+        "y": 500,
+        "wires": [
+            [
+                "e90b7906.92e2b8"
+            ]
+        ]
+    },
+    {
+        "id": "33ea9c91.cd9484",
+        "type": "comment",
+        "z": "ced3d84f.5e98f8",
+        "name": "Track system",
+        "info": "",
+        "x": 410,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "e90b7906.92e2b8",
+        "type": "file",
+        "z": "ced3d84f.5e98f8",
+        "name": "",
+        "filename": "D:\\data\\sprinter\\track\\track.csv",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 1310,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "dfe6980a.2e3b08",
+        "type": "comment",
+        "z": "ced3d84f.5e98f8",
+        "name": "All devices connection status",
+        "info": "",
+        "x": 460,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "d9a95dde.afa5c",
+        "type": "mqtt in",
+        "z": "ced3d84f.5e98f8",
+        "name": "Track device sharp 1",
+        "topic": "sprinterdev/sharpdev1/constat",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "e994d0d.9f4cb3",
+        "x": 430,
+        "y": 220,
+        "wires": [
+            [
+                "baee2b79.88ed48"
+            ]
+        ]
+    },
+    {
+        "id": "baee2b79.88ed48",
+        "type": "ui_text",
+        "z": "ced3d84f.5e98f8",
+        "group": "97785468.49ba18",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "sharp 1 con stat",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 660,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "c3182df.e15a5d",
+        "type": "mqtt in",
+        "z": "ced3d84f.5e98f8",
+        "name": "Track device sharp 3",
+        "topic": "sprinterdev/sharpdev3/constat",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "e994d0d.9f4cb3",
+        "x": 430,
         "y": 280,
+        "wires": [
+            [
+                "b1cf580e.6f8628"
+            ]
+        ]
+    },
+    {
+        "id": "b1cf580e.6f8628",
+        "type": "ui_text",
+        "z": "ced3d84f.5e98f8",
+        "group": "97785468.49ba18",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "sharp 3 con stat",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 660,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "dbe180cc.62281",
+        "type": "mqtt in",
+        "z": "ced3d84f.5e98f8",
+        "name": "Arm motions device",
+        "topic": "sprinterdev/armmotion-left/constat",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "e994d0d.9f4cb3",
+        "x": 430,
+        "y": 340,
+        "wires": [
+            [
+                "e040cb14.fc0d18"
+            ]
+        ]
+    },
+    {
+        "id": "e040cb14.fc0d18",
+        "type": "ui_text",
+        "z": "ced3d84f.5e98f8",
+        "group": "97785468.49ba18",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Arm left con stat",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 660,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "85aaa17c.9243f",
+        "type": "mqtt in",
+        "z": "ced3d84f.5e98f8",
+        "name": "Smart Shoe",
+        "topic": "sprinterdev/shoe-left/constat",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "e994d0d.9f4cb3",
+        "x": 870,
+        "y": 340,
+        "wires": [
+            [
+                "6046b20b.f98eac"
+            ]
+        ]
+    },
+    {
+        "id": "6046b20b.f98eac",
+        "type": "ui_text",
+        "z": "ced3d84f.5e98f8",
+        "group": "97785468.49ba18",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Smart shoe left con stat",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1090,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "d9c80c78.6f13b",
+        "type": "mqtt in",
+        "z": "ced3d84f.5e98f8",
+        "name": "Track device sharp 2",
+        "topic": "sprinterdev/sharpdev2/constat",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "e994d0d.9f4cb3",
+        "x": 890,
+        "y": 220,
+        "wires": [
+            [
+                "d63344df.a51968"
+            ]
+        ]
+    },
+    {
+        "id": "d63344df.a51968",
+        "type": "ui_text",
+        "z": "ced3d84f.5e98f8",
+        "group": "97785468.49ba18",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "sharp 2 con stat",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1120,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "c8b9f78e.bcb7c8",
+        "type": "mqtt in",
+        "z": "ced3d84f.5e98f8",
+        "name": "Track device sharp 4",
+        "topic": "sprinterdev/sharpdev4/constat",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "e994d0d.9f4cb3",
+        "x": 890,
+        "y": 280,
+        "wires": [
+            [
+                "fa95d5c8.443df8"
+            ]
+        ]
+    },
+    {
+        "id": "fa95d5c8.443df8",
+        "type": "ui_text",
+        "z": "ced3d84f.5e98f8",
+        "group": "97785468.49ba18",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "sharp 4 con stat",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1120,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "9e54cb59.538b98",
+        "type": "debug",
+        "z": "ced3d84f.5e98f8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 900,
         "wires": []
     }
 ]
