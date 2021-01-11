@@ -1,6 +1,8 @@
 #include "Wire.h"
 #include "WiFi.h"
 #include <PubSubClient.h>
+#include <WiFiUdp.h>
+#include <NTPClient.h>
 
 int16_t rawAccX, rawAccY, rawAccZ, rawTemp, rawGyroX, rawGyroY, rawGyroZ;
 float gyroXoffset, gyroYoffset, gyroZoffset;
@@ -15,16 +17,22 @@ long timer = 0;
 int recno = 0;
 char recno_str[8];
 char angle[8];
+String formattedDate;
+char char_array[0];
 
 // Change the credentials below, so your ESP8266 connects to your router
 const char* ssid = "Dialog 4G DE7";
 const char* password = "04q9M2Er";
 
 // Change the variable to your Raspberry Pi IP address, so it connects to your MQTT broker
-const char* mqtt_server = "test.mosquitto.org";
+//const char* mqtt_server = "test.mosquitto.org";
+const char* mqtt_server = "192.168.8.102";
 
 WiFiClient espClient;
 PubSubClient client(espClient);
+
+WiFiUDP ntpUDP;
+NTPClient timeClient(ntpUDP, "asia.pool.ntp.org");
 
 void setup_wifi() {
   delay(10);
@@ -79,7 +87,7 @@ void loop() {
   if (!client.connected()) {
     reconnect();
   } else {
-    
+
     //example publish
     client.publish("sprinterdev/armmotion-left/constat", "Connected");
     Serial.print(" connected ");
@@ -92,17 +100,17 @@ void loop() {
     //    Serial.println(pitch);
   }
 
-  //  timeClient.update();
-  //  formattedDate = timeClient.getFormattedTime();
-  //  int str_len = formattedDate.length() + 1;
-  //  char char_array[str_len];
-  //  formattedDate.toCharArray(char_array, str_len);
+  timeClient.update();
+  formattedDate = timeClient.getFormattedTime();
+  int str_len = formattedDate.length() + 1;
+  char char_array[str_len];
+  formattedDate.toCharArray(char_array, str_len);
 
   dtostrf( recno, 1, 2, recno_str);
 
   dtostrf( pitch, 1, 2, angle);
   client.publish("sprinterdev/arm-left/recno", recno_str);
-  //    client.publish("sprinterDev/mpu6056-left/time", char_array);
+  client.publish("sprinterdev/arm-left/time", char_array);
   client.publish("sprinterdev/arm-left/angle", angle);
 
 
