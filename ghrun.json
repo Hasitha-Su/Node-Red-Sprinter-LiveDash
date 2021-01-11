@@ -45,14 +45,14 @@
         "id": "6fab837c.78b01c",
         "type": "tab",
         "label": "Arm angle",
-        "disabled": false,
+        "disabled": true,
         "info": ""
     },
     {
         "id": "6686faad.d17f24",
         "type": "tab",
         "label": "Foot strike",
-        "disabled": true,
+        "disabled": false,
         "info": ""
     },
     {
@@ -5907,7 +5907,7 @@
         "hdrout": "once",
         "multi": "one",
         "ret": "\\r\\n",
-        "temp": "recno,time,fore,mid,rear",
+        "temp": "recno,time,forefoot_strike,midfoot_strike,rearfoot_strike",
         "skip": "1",
         "strings": false,
         "include_empty_strings": true,
@@ -6195,7 +6195,7 @@
         "topic": "shoe/recno",
         "qos": "0",
         "datatype": "utf8",
-        "broker": "e994d0d.9f4cb3",
+        "broker": "207dae44.9243b2",
         "x": 210,
         "y": 180,
         "wires": [
@@ -6212,7 +6212,7 @@
         "topic": "shoe/time",
         "qos": "0",
         "datatype": "utf8",
-        "broker": "e994d0d.9f4cb3",
+        "broker": "207dae44.9243b2",
         "x": 210,
         "y": 240,
         "wires": [
