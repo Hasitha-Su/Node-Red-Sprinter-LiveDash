@@ -5907,7 +5907,7 @@
         "hdrout": "once",
         "multi": "one",
         "ret": "\\r\\n",
-        "temp": "recno,time,forefoot_strike,midfoot_strike,rearfoot_strike",
+        "temp": "recno,time,forefoot_strike,midfoot_strike,rarefoot_strike",
         "skip": "1",
         "strings": false,
         "include_empty_strings": true,
